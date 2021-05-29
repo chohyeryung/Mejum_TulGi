@@ -19,30 +19,21 @@ export default function GameListPage() {
     return(
         <div id={"Container"}>
             <table className={"ImageTable"}>
-                {/* <tr>
-                {goodsImages.map((image, index) => {
+                <tr>
+                {ImageData.map((data, index) => {
                     return index < 4 ?
                     <td>
-                        <img src={image} className={"GoodsImage"} />
+                        <img src={data.imgsrc} className={"GoodsImage"} />
                     </td> : ''
                 })}
                 </tr>
                 <tr>
-                {goodsImages.map((image, index) => {
+                {ImageData.map((data, index) => {
                     return index >= 4 ?
                     <td>
-                        <img src={image} className={"GoodsImage"} />
+                        <img src={data.imgsrc} className={"GoodsImage"} />
                     </td> : ''
                 })}
-                </tr> */}
-                <tr>
-                    {ImageData.map((data) => {
-                        return (
-                            <td>
-                                <img src={data.imgsrc} className={"GoodsImage"} />
-                            </td>
-                        )
-                    })}
                 </tr>
             </table>
         </div>
