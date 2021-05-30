@@ -6,6 +6,10 @@ import goodsImage5 from "../assets/images/5.png";
 import goodsImage6 from "../assets/images/6.jpg";
 import goodsImage7 from "../assets/images/7.png";
 import goodsImage8 from "../assets/images/8.jpg";
+import goodsImage9 from "../assets/images/9.jpg";
+import goodsImage10 from "../assets/images/10.jpg";
+import goodsImage11 from "../assets/images/11.jpeg";
+import goodsImage12 from "../assets/images/12.jpg";
 
 export const ImageData = [
     {
@@ -39,5 +43,21 @@ export const ImageData = [
     {
         id : 8,
         "imgsrc" : goodsImage8
+    },
+    {
+        id : 9,
+        "imgsrc" : goodsImage9
+    },
+    {
+        id : 10,
+        "imgsrc" : goodsImage10
+    },
+    {
+        id : 11,
+        "imgsrc" : goodsImage11
+    },
+    {
+        id : 12,
+        "imgsrc" : goodsImage12
     }
 ]
