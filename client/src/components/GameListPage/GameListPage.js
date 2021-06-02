@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 
 import "../../css/game_list.css";
 import { ImageData } from "../../data/ImageData";
+import GamePage from "../GamePage/GamePage";
 
 export default function GameListPage() {
     const [goodsImages, setGoodsImages] = useState([]);
+    const [time, setTime] = useState(0);
 
     useEffect(() => {
         let results = [];
@@ -21,8 +23,9 @@ export default function GameListPage() {
 
     }, []);
 
+    
     return(
-        
+        <>
         <div id={"Container"}>
             <table className={"ImageTable"}>
                 <tr>
@@ -42,7 +45,10 @@ export default function GameListPage() {
                 })}
                 </tr>
             </table>
+
+            
         </div>
-        
+        <GamePage data={goodsImages}/>
+        </>
     )
 }

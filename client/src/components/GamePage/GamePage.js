@@ -4,15 +4,15 @@ import useInterval from '@use-it/interval';
 
 let classifier;
 
-export default function GamePage() {
+export default function GamePage(props) {
 
   const videoRef = useRef();
   const [result, setResult] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [time, setTime] = useState(0);
+  const images = props.data;
 
   useEffect(() => {
-
     classifier = ml5.imageClassifier("./model/model.json", () => {
       navigator.mediaDevices
       .getUserMedia({ video: true, audio: false })
@@ -22,6 +22,7 @@ export default function GamePage() {
         setLoaded(true);
       })
     })
+   
   }, []);
 
   // 0.5초마다 분석
@@ -33,7 +34,7 @@ export default function GamePage() {
           return;
         }
         setResult(results[0]);
-        console.log(results[0]);
+       // console.log(results[0]);
       });
     }
   }, 500);
