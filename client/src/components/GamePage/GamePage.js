@@ -9,6 +9,9 @@ export default function GamePage(props) {
   const videoRef = useRef(null);
   const [result, setResult] = useState([]);
   const [time, setTime] = useState(0);
+  const images = props.goodsImages;
+  const [imageList, setImageList] = useState(images);
+
 
   useEffect(() => {
     const getUserMedia = async () => {
@@ -24,7 +27,9 @@ export default function GamePage(props) {
     classifier = ml5.imageClassifier("./model/model.json", () => {
       getUserMedia();
     })
+   
   }, []);
+  
 
   // 0.5초마다 분석
   useInterval(() => {
@@ -34,14 +39,27 @@ export default function GamePage(props) {
           console.log(error);
           return;
         }
-        results.map((r) => {
-          return r.confidence >= 99.9
+        console.log(result.label.substr(6,7));
+        
+        
+        // 2-1-1. 그 애를 화면에 보여주면서 정답! 이라고 해주고,
+        // 2-2. 없으면 이미 찾은 물건이거나 틀린 물건이라고 말해주기
+        // 1. 가장 높은 정확도를 가진 애를 찾은 후에
+        setResult(results.filter((r) => {
+          return r.confidence >= 0.99
+        }))
+        
+        imageList.forEach((image) => {
+          // 2-1. 그 애가 images 안에 있을 경우 빼고,
+          // if(''+image.id === result.label.substr(6,7) && result.length !== 0) {
+          //   setImageList(imageList.splice(imageList.indexOf(image), 1));
+          // }
+          console.log(image);
         })
-        setResult(results[0]);
+        // console.log(imageList);
       });
     }
   }, 500);
-  console.log(result);
 
   setTimeout(() => setTime(time+1), 1000);
 

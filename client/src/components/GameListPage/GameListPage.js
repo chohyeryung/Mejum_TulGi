@@ -3,8 +3,6 @@ import React from "react";
 import "../../css/game_list.css";
 
 export default function GameListPage(props) {
-    
-    console.log(props)
 
     return(
         <div id={"Container"}>
