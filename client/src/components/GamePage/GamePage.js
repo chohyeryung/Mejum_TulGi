@@ -35,7 +35,10 @@ export default function GamePage(props) {
 
   useEffect(() => {
     if(imageList.length === 0) {
-      console.log('빈배열');
+      console.log('성공');
+      history.push({
+        pathname: "/game_end",
+      })
     }
   }, []);
   
