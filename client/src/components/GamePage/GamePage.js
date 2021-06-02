@@ -16,6 +16,7 @@ export default function GamePage(props) {
 
 
   useEffect(() => {
+    setImageList([]);
     const getUserMedia = async () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
@@ -29,12 +30,13 @@ export default function GamePage(props) {
     classifier = ml5.imageClassifier("./model/model.json", () => {
       getUserMedia();
     })
-
-    // const timer = setTimeout(() => {
-    //   setTime(time+1)
-    // }, 1000);
-    // console.log(time);
    
+  }, []);
+
+  useEffect(() => {
+    if(imageList.length === 0) {
+      console.log('빈배열');
+    }
   }, []);
   
 
@@ -63,18 +65,13 @@ export default function GamePage(props) {
         if(result.length === 1) {
           setImageList(imageList.filter(image => image.id+'' !== (result[0].label.substr(6, 7))));
         }
-        
-        console.log(imageList);
+
       });
     }
   }, 500);
 
   setTimeout(() => setTime(time+1), 1000);
-  if(time === 120) {
-    console.log('시간초과');
-
-    // history.push("/game_end")
-    // console.log(props);
+  if(time === 120) {  //2분 제한시간
     history.push({
       pathname: "/game_end",
     })
@@ -84,6 +81,12 @@ export default function GamePage(props) {
 
   return(
     <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
+      <h3>{time}</h3>
+      {parseInt(((120-time)%3600)/60)>0 ?
+      <h3>{parseInt(((120-time)%3600)/60)}분 {(120-time)%60}초 남았습니다.</h3>:
+      <h3>{(120-time)%60}초 남았습니다.</h3>
+      }
+      
       <div style={{ marginTop:'60px' }}>
         <video
           style={{ justifyContent:'center', transform: "scale(-1,1)" }}
