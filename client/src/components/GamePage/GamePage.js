@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useHistory } from "react-router-dom";
 import ml5 from 'ml5';
 import useInterval from '@use-it/interval';
 
@@ -11,6 +12,7 @@ export default function GamePage(props) {
   const [time, setTime] = useState(0);
   const images = props.goodsImages;
   const [imageList, setImageList] = useState(images);
+  const history = useHistory();
 
 
   useEffect(() => {
@@ -27,6 +29,11 @@ export default function GamePage(props) {
     classifier = ml5.imageClassifier("./model/model.json", () => {
       getUserMedia();
     })
+
+    // const timer = setTimeout(() => {
+    //   setTime(time+1)
+    // }, 1000);
+    // console.log(time);
    
   }, []);
   
@@ -63,6 +70,17 @@ export default function GamePage(props) {
   }, 500);
 
   setTimeout(() => setTime(time+1), 1000);
+  if(time === 120) {
+    console.log('시간초과');
+
+    // history.push("/game_end")
+    // console.log(props);
+    history.push({
+      pathname: "/game_end",
+    })
+
+    clearTimeout();
+  }
 
   return(
     <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
