@@ -38,6 +38,7 @@ export default function GamePage(props) {
       console.log('성공');
       history.push({
         pathname: "/game_end",
+        state: { time: time }
       })
     }
   }, []);
