@@ -5,15 +5,15 @@ import {
   Route,
 } from "react-router-dom";
 
-import GamePage from "./components/GamePage/GamePage";
 import GameListPage from "./components/GameListPage/GameListPage";
 import GameEnd from "./components/GameEndPage/GameEndPage"
+import GameLandingPage from "./components/GameLandingPage";
 function App() {
   return (
     <Router>
       <Switch>
         <Route path="/game">
-          <GamePage />
+          <GameLandingPage />
         </Route>
         <Route path="/game_list">
           <GameListPage />

@@ -6,21 +6,24 @@ let classifier;
 
 export default function GamePage(props) {
 
-  const videoRef = useRef();
+  const videoRef = useRef(null);
   const [result, setResult] = useState([]);
-  const [loaded, setLoaded] = useState(false);
   const [time, setTime] = useState(0);
   const images = props.data;
 
   useEffect(() => {
-    classifier = ml5.imageClassifier("./model/model.json", () => {
-      navigator.mediaDevices
-      .getUserMedia({ video: true, audio: false })
-      .then((stream) => {
+    const getUserMedia = async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
         videoRef.current.srcObject = stream;
         videoRef.current.play();
-        setLoaded(true);
-      })
+      } catch(err) {
+        console.log(err)
+      }
+    };
+    
+    classifier = ml5.imageClassifier("./model/model.json", () => {
+      getUserMedia();
     })
    
   }, []);
@@ -33,11 +36,15 @@ export default function GamePage(props) {
           console.log(error);
           return;
         }
+        results.map((r) => {
+          return r.confidence >= 99.9
+        })
         setResult(results[0]);
-       // console.log(results[0]);
       });
     }
   }, 500);
+
+  setTimeout(() => setTime(time+1), 1000);
 
   return(
     <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
