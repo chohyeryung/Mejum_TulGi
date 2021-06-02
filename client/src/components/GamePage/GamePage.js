@@ -9,7 +9,8 @@ export default function GamePage(props) {
   const videoRef = useRef(null);
   const [result, setResult] = useState([]);
   const [time, setTime] = useState(0);
-  const images = props.data;
+  const images = props.goodsImages;
+
 
   useEffect(() => {
     const getUserMedia = async () => {
@@ -27,6 +28,7 @@ export default function GamePage(props) {
     })
    
   }, []);
+  
 
   // 0.5초마다 분석
   useInterval(() => {
@@ -36,13 +38,22 @@ export default function GamePage(props) {
           console.log(error);
           return;
         }
-        results.map((r) => {
-          return r.confidence >= 99.9
+        results = results.map((r) => {
+          // return r.confidence >= 0.99 
+          //r.confidence r.label
+          console.log(r);
+
         })
-        setResult(results[0]);
+        setResult(results);
+        // images.map((image) => {
+        //   return image.id !== results[0].label 
+        // })
+        // console.log(results);
       });
     }
   }, 500);
+
+  // console.log(images);
 
   setTimeout(() => setTime(time+1), 1000);
 
