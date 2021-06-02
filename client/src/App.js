@@ -1,17 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import GamePage from "./components/GamePage/GamePage";
 import GameListPage from "./components/GameListPage/GameListPage";
 import GameRanking from "./components/GameRankingPage/GameRankingPage";
 
 import GameEnd from "./components/GameEndPage/GameEndPage";
+import GameEnd from "./components/GameEndPage/GameEndPage";
+import GameLandingPage from "./components/GameLandingPage";
 function App() {
   return (
     <Router>
       <Switch>
         <Route path="/game">
-          <GamePage />
+          <GameLandingPage />
         </Route>
         <Route path="/game_list">
           <GameListPage />

@@ -4,21 +4,27 @@ import useInterval from "@use-it/interval";
 
 let classifier;
 
-export default function GamePage() {
-  const videoRef = useRef();
+export default function GamePage(props) {
+  const videoRef = useRef(null);
   const [result, setResult] = useState([]);
-  const [loaded, setLoaded] = useState(false);
   const [time, setTime] = useState(0);
 
   useEffect(() => {
-    classifier = ml5.imageClassifier("./model/model.json", () => {
-      navigator.mediaDevices
-        .getUserMedia({ video: true, audio: false })
-        .then((stream) => {
-          videoRef.current.srcObject = stream;
-          videoRef.current.play();
-          setLoaded(true);
+    const getUserMedia = async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: false,
         });
+        videoRef.current.srcObject = stream;
+        videoRef.current.play();
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    classifier = ml5.imageClassifier("./model/model.json", () => {
+      getUserMedia();
     });
   }, []);
 
@@ -30,11 +36,16 @@ export default function GamePage() {
           console.log(error);
           return;
         }
+        results.map((r) => {
+          return r.confidence >= 99.9;
+        });
         setResult(results[0]);
-        console.log(results[0]);
       });
     }
   }, 500);
+  console.log(result);
+
+  setTimeout(() => setTime(time + 1), 1000);
 
   return (
     <div

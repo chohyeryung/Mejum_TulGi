@@ -1,9 +1,31 @@
 import React from "react";
 
-export default function GameListPage() {
+import "../../css/game_list.css";
+
+export default function GameListPage(props) {
+    
+    console.log(props)
 
     return(
-        <h1>hihi</h1>
-        
+        <div id={"Container"}>
+            <table className={"ImageTable"}>
+                <tr>
+                {props.goodsImages.map((data, index) => {
+                    return index < 4 ?
+                    <td>
+                        <img src={data.imgsrc} className="GoodsImage" alt="goods" />
+                    </td> : ''
+                })}
+                </tr>
+                <tr>
+                {props.goodsImages.map((data, index) => {
+                    return index >= 4 ?
+                    <td>
+                        <img src={data.imgsrc} className="GoodsImage" alt="goods" />
+                    </td> : ''
+                })}
+                </tr>
+            </table>
+        </div>
     )
 }
