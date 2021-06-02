@@ -10,6 +10,7 @@ export default function GamePage(props) {
   const [result, setResult] = useState([]);
   const [time, setTime] = useState(0);
   const images = props.goodsImages;
+  const [imageList, setImageList] = useState(images);
 
 
   useEffect(() => {
@@ -38,22 +39,28 @@ export default function GamePage(props) {
           console.log(error);
           return;
         }
-        results = results.map((r) => {
-          // return r.confidence >= 0.99 
-          //r.confidence r.label
-          console.log(r);
+        
+        // 2-1-1. 그 애를 화면에 보여주면서 정답! 이라고 해주고,
+        // 2-2. 없으면 이미 찾은 물건이거나 틀린 물건이라고 말해주기
+        // 1. 가장 높은 정확도를 가진 애를 찾은 후에
+        setResult(results.filter((r) => {
+          return r.confidence >= 0.99
+        }))
 
-        })
-        setResult(results);
-        // images.map((image) => {
-        //   return image.id !== results[0].label 
-        // })
-        // console.log(results);
+        //imageList
+        //{id: 12, imgsrc: "/static/media/12.fe9bca2e.jpg"}
+
+        //result
+        //label: "Class 5", confidence: 0.9998790025...
+
+        if(result.length === 1) {
+          setImageList(imageList.filter(image => image.id+'' !== (result[0].label.substr(6, 7))));
+        }
+        
+        console.log(imageList);
       });
     }
   }, 500);
-
-  // console.log(images);
 
   setTimeout(() => setTime(time+1), 1000);
 

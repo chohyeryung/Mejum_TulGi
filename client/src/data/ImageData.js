@@ -18,46 +18,46 @@ export const ImageData = [
     },
     {
         id : 2,
-        "imgsrc" : goodsImage2
+        imgsrc : goodsImage2
     },
     {
         id : 3,
-        "imgsrc" : goodsImage3
+        imgsrc : goodsImage3
     },
     {
         id : 4,
-        "imgsrc" : goodsImage4
+        imgsrc : goodsImage4
     },
     {
         id : 5,
-        "imgsrc" : goodsImage5
+        imgsrc : goodsImage5
     },
     {
         id : 6,
-        "imgsrc" : goodsImage6
+        imgsrc : goodsImage6
     },
     {
         id : 7,
-        "imgsrc" : goodsImage7
+        imgsrc : goodsImage7
     },
     {
         id : 8,
-        "imgsrc" : goodsImage8
+        imgsrc : goodsImage8
     },
     {
         id : 9,
-        "imgsrc" : goodsImage9
+        imgsrc : goodsImage9
     },
     {
         id : 10,
-        "imgsrc" : goodsImage10
+        imgsrc : goodsImage10
     },
     {
         id : 11,
-        "imgsrc" : goodsImage11
+        imgsrc : goodsImage11
     },
     {
         id : 12,
-        "imgsrc" : goodsImage12
+        imgsrc : goodsImage12
     }
 ]
