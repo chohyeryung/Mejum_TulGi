@@ -14,14 +14,13 @@ export default function GamePage(props) {
   const [imageList, setImageList] = useState(images);
   const history = useHistory();
 
-
   useEffect(() => {
-    setImageList([]);
     const getUserMedia = async () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
         videoRef.current.srcObject = stream;
         videoRef.current.play();
+        
       } catch(err) {
         console.log(err)
       }
@@ -69,7 +68,7 @@ export default function GamePage(props) {
         if(result.length === 1) {
           setImageList(imageList.filter(image => image.id+'' !== (result[0].label.substr(6, 7))));
         }
-
+        console.log(imageList);
       });
     }
   }, 500);
