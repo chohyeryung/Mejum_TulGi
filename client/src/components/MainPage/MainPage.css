@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap');
+main {
+  width: 100%;
+  max-width: 100vw;
+  height: 100vh;
+}
+
+#HomeContainer {
+  display: flex;
+
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  background-size: cover;
+  background-position: center;
+  background-image: url("./MainPage.jpg");
+
+
+}
+
+
+.photo{
+  height: 65vh;
+  width: 63vh;
+
+  position: absolute;
+  float: left;
+  bottom: 0px;
+}
+
+p{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 8em;
+  color: #1F5378;
+  text-align: center;
+  
+  text-align: center ;
+  padding: 30px 0;
+
+  stroke: rgb(0, 0, 0);
+  stroke-width: 20px;
+  stroke-linejoin: round;
+
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+a{
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  padding: 1rem 1rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  background-color: #1F5378;
+  font-weight: 500;
+
+  width: 2em;
+  height: 1em;
+
+  display: inline-block;
+  width: auto;
+
+  border: none;
+  border-radius: 2em;
+
+  position: absolute;
+  float: right;
+  bottom: 0px;
+
+
+}
