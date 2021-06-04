@@ -1,7 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import Modal from 'react-modal';
 import { useHistory } from "react-router-dom";
 import ml5 from 'ml5';
 import useInterval from '@use-it/interval';
+
+import ImageModal from '../Modal/Modal';
 
 let classifier;
 
@@ -10,7 +13,20 @@ export default function GamePage(props) {
   const videoRef = useRef(null);
   const [result, setResult] = useState([]);
   const [time, setTime] = useState(0);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [hintTime, setHintTime] = useState(0);
+
   const images = props.goodsImages;
+  // const images = [
+  //   {id:1, imgSrc:'1.jpg'},
+  //   {id:2, imgSrc:'1.jpg'},
+  //   {id:3, imgSrc:'1.jpg'},
+  //   {id:4, imgSrc:'1.jpg'},
+  //   {id:5, imgSrc:'1.jpg'},
+  //   {id:6, imgSrc:'1.jpg'},
+  //   {id:7, imgSrc:'1.jpg'},
+  //   {id:8, imgSrc:'1.jpg'},
+  // ]
   const [imageList, setImageList] = useState(images);
   const history = useHistory();
 
@@ -37,11 +53,10 @@ export default function GamePage(props) {
       console.log('성공');
       history.push({
         pathname: "/game_end",
-        state: { time: time }
+        state: { time: time+hintTime }
       })
     }
   }, []);
-  
 
   // 0.5초마다 분석
   useInterval(() => {
@@ -82,24 +97,44 @@ export default function GamePage(props) {
     clearTimeout();
   }
 
+  const openModal = () => {
+    setModalIsOpen(true);
+    
+  }
+
+  if(modalIsOpen) {
+    if(hintTime === 5) {
+      setModalIsOpen(false);
+    }
+    setTimeout(() => setHintTime(hintTime+1), 1000);
+  }
+
+  console.log(hintTime)
   return(
     <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
-      <h3>{time}</h3>
-      {parseInt(((120-time)%3600)/60)>0 ?
-      <h3>{parseInt(((120-time)%3600)/60)}분 {(120-time)%60}초 남았습니다.</h3>:
-      <h3>{(120-time)%60}초 남았습니다.</h3>
-      }
-      
-      <div style={{ marginTop:'60px' }}>
-        <video
-          style={{ justifyContent:'center', transform: "scale(-1,1)" }}
-          ref={videoRef}
-          width="1000"
-          height="500"
-        />
+          {/* <h3>{time}</h3>
+          {parseInt(((120-time)%3600)/60)>0 ?
+          <h3>{parseInt(((120-time)%3600)/60)}분 {(120-time)%60}초 남았습니다.</h3>:
+          <h3>{(120-time)%60}초 남았습니다.</h3>
+          } */}
+          
+          <button onClick={openModal}>힌트보기</button>
+
+          <div style={{ marginTop:'60px' }}>
+            <video
+              style={{ justifyContent:'center', transform: "scale(-1,1)" }}
+              ref={videoRef}
+              width="1000"
+              height="500"
+            />
+          </div>
+          <div style={{ display:'flex', justifyContent:'center' }}>{ result.label }: { result.confidence }</div>
+
+          <Modal isOpen={modalIsOpen}>
+            <ImageModal imageList={imageList}/>
+          </Modal>
       </div>
-      <div style={{ display:'flex', justifyContent:'center' }}>{ result.label }: { result.confidence }</div>
-    </div>
+    
     
   )
 }

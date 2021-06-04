@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     position: relative;
+    opacity: 1;
 }
 
 .ImageTable {
