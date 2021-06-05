@@ -7,70 +7,75 @@ main {
 
 #HomeContainer {
   display: flex;
-
   min-width: 100%;
   min-height: 100%;
+
   position: fixed;
   background-size: cover;
   background-position: center;
-  background-image: url("./MainPage.jpg");
-
-
 }
 
-
-.photo{
-  height: 65vh;
-  width: 63vh;
-
-  position: absolute;
-  float: left;
-  bottom: 0px;
+.LeftContainer{
+  width: 50%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
 }
 
-p{
+.LeftContainer h1{
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 8em;
+  font-size: 5em;
   color: #1F5378;
-  text-align: center;
-  
-  text-align: center ;
-  padding: 30px 0;
+  margin-left: 15%;
+  margin-bottom: -8%;
 
-  stroke: rgb(0, 0, 0);
-  stroke-width: 20px;
-  stroke-linejoin: round;
+}
 
+.LeftContainer h2{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1.8em;
+  color: #444444;
+  margin-left: 15%;
+  margin-top: 10%;
+  opacity: 80%;
+}
+
+.pho{
+  width: 55vh;
+  height: 58vh;
+}
+
+button  {
+  width:11em;
+  height:4em;
   position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom:5%;
+  right:5%;
+
+  background-color: #1F5378;
+  border-radius: 2.5em;
+
+  font-family: 'Noto Sans KR', sans-serif;
+  color: white;
+}
+
+button:hover{
+	background: none;
+	cursor: pointer;
+  border-color: #1F5378;
+  color: #1F5378;
 }
 
 a{
   font-family: 'Noto Sans KR', sans-serif;
-  margin: 0;
-  padding: 1rem 1rem;
-  color: white;
-  font-size: 1rem;
-  font-weight: 400;
-  text-align: center;
   text-decoration: none;
-  background-color: #1F5378;
-  font-weight: 500;
+  font-size: 2em;
+  color: white;
+}
 
-  width: 2em;
-  height: 1em;
-
-  display: inline-block;
-  width: auto;
-
-  border: none;
-  border-radius: 2em;
-
-  position: absolute;
-  float: right;
-  bottom: 0px;
-
-
+a:hover{
+  font-family: 'Noto Sans KR', sans-serif;
+  text-decoration: none;
+  font-size: 2em;
+  color: #1F5378;
 }
