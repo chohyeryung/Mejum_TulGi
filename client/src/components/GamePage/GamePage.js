@@ -114,11 +114,15 @@ export default function GamePage() {
   console.log(hintTime)
   return(
     <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
+      <audio autoPlay>
+        <source src='../../assets/audio/stopwatch.mp3' type="audio/mp3"></source>
+      </audio>
+
       <ProgressBar progress={percent} />
 
         {/* <h3>{time}</h3> */}
         {parseInt(((120-time)%3600)/60)>0 ?
-        <h3 className="lastTime">{parseInt(((120-time)%3600)/60)}분 
+        <h3 className="lastTime">{parseInt(((120-time)%3600)/60)}분&nbsp; 
         {(120-time)%60}초 남았습니다.</h3>:
         <h3 className="lastTime">{(120-time)%60}초 남았습니다.</h3>
         }
