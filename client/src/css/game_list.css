@@ -1,3 +1,15 @@
+
+.Container{
+    background: url('../assets/images/classroom.jpg');
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
 .timer-wrapper{
     display:flex;
     justify-content: center;
@@ -9,7 +21,7 @@
     font-weight: bold;
 }
 
-#Container {
+#ImageContainer {
     display: flex;
     justify-content: center;
     position: relative;
