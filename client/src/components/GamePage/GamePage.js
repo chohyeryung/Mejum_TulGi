@@ -6,6 +6,7 @@ import useInterval from '@use-it/interval';
 import ProgressBar from "./ProgressBar";
 
 import ImageModal from '../Modal/Modal';
+import '../../css/game_page.css';
 
 let classifier;
 
@@ -114,31 +115,26 @@ export default function GamePage() {
   return(
     <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
       <ProgressBar progress={percent} />
-      <div style={{ marginTop:'60px' }}>
+
+      <button onClick={openModal} className="hintBtn">힌트보기</button>
+
+      <div style={{ marginTop:'60px', display:'flex', justifyContent:'center' }}>
         <video
-          style={{ justifyContent:'center', transform: "scale(-1,1)" }}
           ref={videoRef}
-          width="1000"
-          height="500"
+          style={{
+            width:'100%',
+            height:500,
+            transform: 'scale(-1,1)',
+            justifyContent:'center'
+        }} 
         />
       </div>
-      시간 : {time}
       {/* <h3>{time}</h3>
           {parseInt(((120-time)%3600)/60)>0 ?
           <h3>{parseInt(((120-time)%3600)/60)}분 {(120-time)%60}초 남았습니다.</h3>:
           <h3>{(120-time)%60}초 남았습니다.</h3>
       } */}
-          
-      <button onClick={openModal}>힌트보기</button>
 
-      <div style={{ marginTop:'60px' }}>
-        <video
-          style={{ justifyContent:'center', transform: "scale(-1,1)" }}
-          ref={videoRef}
-          width="1000"
-          height="500"
-        />
-      </div>
       <div style={{ display:'flex', justifyContent:'center' }}>{ result.label }: { result.confidence }</div>
 
       <Modal isOpen={modalIsOpen}>

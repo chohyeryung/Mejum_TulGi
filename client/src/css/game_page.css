@@ -1,0 +1,11 @@
+.hintBtn{
+    width:120px;
+    height:60px;
+    border-radius: 30px;
+    border: none;
+    position: absolute;
+    right:10%;
+    top:15%;
+    font-size: 18px;
+    font-weight: bold;
+}
