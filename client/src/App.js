@@ -12,15 +12,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/game">
-          <GameLandingPage />
-        </Route>
-        <Route path="/game_list">
-          <GameListPage />
-        </Route>
-        <Route path="/game_end">
-          <GameEnd />
-        </Route>
+        <Route path="/game" component={GameLandingPage} />
+        <Route path="/game_list" component={GameListPage} />
+        <Route path="/game_end" component={GameEnd} />
       </Switch>
     </Router>
   );

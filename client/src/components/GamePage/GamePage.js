@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import Modal from 'react-modal';
+import { useHistory } from "react-router-dom";
 import ml5 from 'ml5';
 import useInterval from '@use-it/interval';
 import ProgressBar from "./ProgressBar";
+
+import ImageModal from '../Modal/Modal';
 
 let classifier;
 
@@ -21,6 +25,9 @@ export default function GamePage() {
     { id: 6, label: '6.jpg' },
   ];
   const [imageList, setImageList] = useState(images);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [hintTime, setHintTime] = useState(0);
+  const history = useHistory();
 
   useEffect(() => {
     const getUserMedia = async () => {
@@ -28,6 +35,7 @@ export default function GamePage() {
         const stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
         videoRef.current.srcObject = stream;
         videoRef.current.play();
+        
       } catch(err) {
         console.log(err)
       }
@@ -39,6 +47,17 @@ export default function GamePage() {
    
   }, []);
   
+
+  useEffect(() => {
+    if(imageList.length === 0) {
+      console.log('성공');
+      history.push({
+        pathname: "/game_end",
+        state: { time: time+hintTime }
+      })
+    }
+  }, []);
+
   // 0.5초마다 분석
   useInterval(() => {
     if(classifier) {
@@ -65,14 +84,33 @@ export default function GamePage() {
           setImageList(imageList.filter(image => image.id+'' !== (result[0].label.substr(6, 7))));
           setPercent(parseInt((6 - imageList.length) / images.length * 100));
         }
-        
         console.log(imageList);
       });
     }
   }, 500);
 
   setTimeout(() => setTime(time+1), 1000);
+  if(time === 120) {  //2분 제한시간
+    history.push({
+      pathname: "/game_end",
+    })
 
+    clearTimeout();
+  }
+
+  const openModal = () => {
+    setModalIsOpen(true);
+    
+  }
+
+  if(modalIsOpen) {
+    if(hintTime === 5) {
+      setModalIsOpen(false);
+    }
+    setTimeout(() => setHintTime(hintTime+1), 1000);
+  }
+
+  console.log(hintTime)
   return(
     <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
       <ProgressBar progress={percent} />
@@ -85,6 +123,28 @@ export default function GamePage() {
         />
       </div>
       시간 : {time}
+      {/* <h3>{time}</h3>
+          {parseInt(((120-time)%3600)/60)>0 ?
+          <h3>{parseInt(((120-time)%3600)/60)}분 {(120-time)%60}초 남았습니다.</h3>:
+          <h3>{(120-time)%60}초 남았습니다.</h3>
+      } */}
+          
+      <button onClick={openModal}>힌트보기</button>
+
+      <div style={{ marginTop:'60px' }}>
+        <video
+          style={{ justifyContent:'center', transform: "scale(-1,1)" }}
+          ref={videoRef}
+          width="1000"
+          height="500"
+        />
+      </div>
+      <div style={{ display:'flex', justifyContent:'center' }}>{ result.label }: { result.confidence }</div>
+
+      <Modal isOpen={modalIsOpen}>
+        <ImageModal imageList={imageList}/>
+      </Modal>
     </div>
+          
   )
 }
