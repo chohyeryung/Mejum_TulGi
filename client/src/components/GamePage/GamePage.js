@@ -61,9 +61,9 @@ export default function GamePage() {
 
   // 0.5초마다 분석
   useInterval(() => {
-    if(classifier) {
+    if (classifier) {
       classifier.classify(videoRef.current, (error, results) => {
-        if(error) {
+        if (error) {
           console.log(error);
           return;
         }
