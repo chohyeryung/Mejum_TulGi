@@ -113,8 +113,16 @@ export default function GamePage() {
 
   console.log(hintTime)
   return(
-    <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
+    <div className={"GContainer"}>
+      
       <ProgressBar progress={percent} />
+
+        {/* <h3>{time}</h3> */}
+        {parseInt(((120-time)%3600)/60)>0 ?
+        <h3 className="lastTime">{parseInt(((120-time)%3600)/60)}분&nbsp; 
+        {(120-time)%60}초 남았습니다.</h3>:
+        <h3 className="lastTime">{(120-time)%60}초 남았습니다.</h3>
+        }
 
       <button onClick={openModal} className="hintBtn">힌트보기</button>
 
@@ -129,11 +137,6 @@ export default function GamePage() {
         }} 
         />
       </div>
-      {/* <h3>{time}</h3>
-          {parseInt(((120-time)%3600)/60)>0 ?
-          <h3>{parseInt(((120-time)%3600)/60)}분 {(120-time)%60}초 남았습니다.</h3>:
-          <h3>{(120-time)%60}초 남았습니다.</h3>
-      } */}
 
       <div style={{ display:'flex', justifyContent:'center' }}>{ result.label }: { result.confidence }</div>
 
