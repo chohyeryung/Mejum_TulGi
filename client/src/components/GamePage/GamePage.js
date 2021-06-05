@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import ml5 from 'ml5';
 import useInterval from '@use-it/interval';
-import { ToastProvider } from 'react-toast-notifications';
+import ProgressBar from "./ProgressBar";
 
 let classifier;
 
@@ -10,7 +10,7 @@ export default function GamePage() {
   const videoRef = useRef(null);
   const [result, setResult] = useState([]);
   const [time, setTime] = useState(0);
-  const [now, setNow] = useState({});
+  const [percent, setPercent] = useState(0);
   
   const images = [
     { id: 1, label: '1.jpg' },
@@ -62,9 +62,8 @@ export default function GamePage() {
         //label: "Class 5", confidence: 0.9998790025...
 
         if(result.length === 1) {
-          setNow(imageList.filter(image => image.id+'' === (result[0].label.substr(6, 7))));
           setImageList(imageList.filter(image => image.id+'' !== (result[0].label.substr(6, 7))));
-          setNow({});
+          setPercent(parseInt((6 - imageList.length) / images.length * 100));
         }
         
         console.log(imageList);
@@ -75,8 +74,8 @@ export default function GamePage() {
   setTimeout(() => setTime(time+1), 1000);
 
   return(
-    <ToastProvider autoDismiss={true} autoDismissTimeout={3000}>
-      <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
+    <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
+      <ProgressBar progress={percent} />
       <div style={{ marginTop:'60px' }}>
         <video
           style={{ justifyContent:'center', transform: "scale(-1,1)" }}
@@ -86,9 +85,6 @@ export default function GamePage() {
         />
       </div>
       시간 : {time}
-      </div>
-    </ToastProvider>
-    
+    </div>
   )
 }
-
