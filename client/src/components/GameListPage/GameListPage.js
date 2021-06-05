@@ -24,6 +24,8 @@ export default function GameListPage(props) {
                 <CountdownCircleTimer
                 isPlaying
                 duration={10}
+                size={250}
+                strokeWidth={20}
                 colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
                 onComplete={() => [false, 1000]}
                 >
