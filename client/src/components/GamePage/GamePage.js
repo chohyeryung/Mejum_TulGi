@@ -113,11 +113,8 @@ export default function GamePage() {
 
   console.log(hintTime)
   return(
-    <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
-      <audio autoPlay>
-        <source src='../../assets/audio/stopwatch.mp3' type="audio/mp3"></source>
-      </audio>
-
+    <div className={"GContainer"}>
+      
       <ProgressBar progress={percent} />
 
         {/* <h3>{time}</h3> */}
