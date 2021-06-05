@@ -19,40 +19,40 @@ const renderTime = ({ remainingTime }) => {
 export default function GameListPage(props) {
 
     return(
-        <>
-        <div className={"timer-wrapper"}>
-            <CountdownCircleTimer
-            isPlaying
-            duration={10}
-            colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
-            onComplete={() => [false, 1000]}
-            >
-            {renderTime}
-            </CountdownCircleTimer>
-        </div>
+        <div className={"Container"}>
+            <div className={"timer-wrapper"}>
+                <CountdownCircleTimer
+                isPlaying
+                duration={10}
+                size={250}
+                strokeWidth={20}
+                colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
+                onComplete={() => [false, 1000]}
+                >
+                {renderTime}
+                </CountdownCircleTimer>
+            </div>
 
-        <div id={"Container"}>
-            <table className={"ImageTable"}>
-                <tr>
-                {props.goodsImages.map((data, index) => {
-                    return index < 4 ?
-                    <td>
-                        <img src={data.imgsrc} className="GoodsImage" alt="goods" />
-                    </td> : ''
-                })}
-                </tr>
-                <tr>
-                {props.goodsImages.map((data, index) => {
-                    return index >= 4 ?
-                    <td>
-                        <img src={data.imgsrc} className="GoodsImage" alt="goods" />
-                    </td> : ''
-                })}
-                </tr>
-            </table>
-
-            
+            <div id={"ImageContainer"}>
+                <table className={"ImageTable"}>
+                    <tr>
+                    {props.goodsImages.map((data, index) => {
+                        return index < 4 ?
+                        <td>
+                            <img src={data.imgsrc} className="GoodsImage" alt="goods" />
+                        </td> : ''
+                    })}
+                    </tr>
+                    <tr>
+                    {props.goodsImages.map((data, index) => {
+                        return index >= 4 ?
+                        <td>
+                            <img src={data.imgsrc} className="GoodsImage" alt="goods" />
+                        </td> : ''
+                    })}
+                    </tr>
+                </table>
+            </div>
         </div>
-        </>
     )
 }
