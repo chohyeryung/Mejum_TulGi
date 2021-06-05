@@ -11,9 +11,7 @@ const renderTime = ({ remainingTime }) => {
   
     return (
       <div className="timer">
-        <div className="text">남은 시간</div>
         <div className="value">{remainingTime}</div>
-        <div className="text">초</div>
       </div>
     );
   };
