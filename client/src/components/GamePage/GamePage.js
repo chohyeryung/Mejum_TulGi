@@ -1,17 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
 import ml5 from 'ml5';
 import useInterval from '@use-it/interval';
+import { ToastProvider } from 'react-toast-notifications';
 
 let classifier;
 
-export default function GamePage(props) {
+export default function GamePage() {
 
   const videoRef = useRef(null);
   const [result, setResult] = useState([]);
   const [time, setTime] = useState(0);
-  const images = props.goodsImages;
+  const [now, setNow] = useState({});
+  
+  const images = [
+    { id: 1, label: '1.jpg' },
+    { id: 2, label: '2.jpg' },
+    { id: 3, label: '3.jpg' },
+    { id: 4, label: '4.jpg' },
+    { id: 5, label: '5.jpg' },
+    { id: 6, label: '6.jpg' },
+  ];
   const [imageList, setImageList] = useState(images);
-
 
   useEffect(() => {
     const getUserMedia = async () => {
@@ -30,7 +39,6 @@ export default function GamePage(props) {
    
   }, []);
   
-
   // 0.5초마다 분석
   useInterval(() => {
     if(classifier) {
@@ -54,7 +62,9 @@ export default function GamePage(props) {
         //label: "Class 5", confidence: 0.9998790025...
 
         if(result.length === 1) {
+          setNow(imageList.filter(image => image.id+'' === (result[0].label.substr(6, 7))));
           setImageList(imageList.filter(image => image.id+'' !== (result[0].label.substr(6, 7))));
+          setNow({});
         }
         
         console.log(imageList);
@@ -65,7 +75,8 @@ export default function GamePage(props) {
   setTimeout(() => setTime(time+1), 1000);
 
   return(
-    <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
+    <ToastProvider autoDismiss={true} autoDismissTimeout={3000}>
+      <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
       <div style={{ marginTop:'60px' }}>
         <video
           style={{ justifyContent:'center', transform: "scale(-1,1)" }}
@@ -74,8 +85,10 @@ export default function GamePage(props) {
           height="500"
         />
       </div>
-      <div style={{ display:'flex', justifyContent:'center' }}>{ result.label }: { result.confidence }</div>
-    </div>
+      시간 : {time}
+      </div>
+    </ToastProvider>
     
   )
 }
+
