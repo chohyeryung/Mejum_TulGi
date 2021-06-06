@@ -11,7 +11,6 @@ import '../../css/game_page.css';
 let classifier;
 
 export default function GamePage(props) {
-
   const videoRef = useRef(null);
   const [result, setResult] = useState([]);
   const [time, setTime] = useState(0);
@@ -25,7 +24,10 @@ export default function GamePage(props) {
   useEffect(() => {
     const getUserMedia = async () => {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: false,
+        });
         videoRef.current.srcObject = stream;
         videoRef.current.play();
         
@@ -33,7 +35,7 @@ export default function GamePage(props) {
         console.log(err)
       }
     };
-    
+
     classifier = ml5.imageClassifier("./model/model.json", () => {
       getUserMedia();
     })
