@@ -24,21 +24,29 @@
         text-align: center;
         color: black;
         font-size: 16px;
-        margin-top: 20px;
+        margin-top: 140px;
+        
     }
 
     .check{
         width: 50px;
         height: 50px;
-        margin-top: 5px;
+        /* padding-top: 65px; */
+        /* margin-top: 10px; */
+        /* */
+    }
+    .rank_name{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: 80px;
     }
     .input_name{
         width: 250px;
         height: 50px;
         padding: 1em 1.5em;
         outline: none;
-        margin-left: 40%;
-        margin-top: 20px;
         border: 1px solid transparent;
         font-family: 'Noto Sans KR', sans-serif;
         font-size: 20px;
@@ -46,4 +54,5 @@
         color: black;
         border-bottom-color: black;
         text-align: center;
+       
     }
