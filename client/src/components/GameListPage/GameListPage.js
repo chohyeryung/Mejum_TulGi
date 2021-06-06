@@ -19,12 +19,12 @@ const renderTime = ({ remainingTime }) => {
 export default function GameListPage(props) {
 
     return(
-        <div className={"Container"}>
-            <div className={"timer-wrapper"}>
+        <div className="Container">
+            <div className="timer-wrapper">
                 <CountdownCircleTimer
                 isPlaying
                 duration={10}
-                size={250}
+                size={180}
                 strokeWidth={20}
                 colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
                 onComplete={() => [false, 1000]}

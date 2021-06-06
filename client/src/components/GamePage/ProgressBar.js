@@ -1,5 +1,5 @@
 import React from 'react'
-import "../../css/game_landing.css"
+import "../../css/progress_bar.css"
 
 function ProgressBar(props) {
     return (

@@ -11,7 +11,6 @@ import '../../css/game_page.css';
 let classifier;
 
 export default function GamePage(props) {
-
   const videoRef = useRef(null);
   const [result, setResult] = useState([]);
   const [time, setTime] = useState(0);
@@ -34,7 +33,10 @@ export default function GamePage(props) {
   useEffect(() => {
     const getUserMedia = async () => {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: false,
+        });
         videoRef.current.srcObject = stream;
         videoRef.current.play();
         
@@ -42,7 +44,7 @@ export default function GamePage(props) {
         console.log(err)
       }
     };
-    
+
     classifier = ml5.imageClassifier("./model/model.json", () => {
       getUserMedia();
     })
@@ -84,7 +86,7 @@ export default function GamePage(props) {
 
         if(result.length === 1) {
           setImageList(imageList.filter(image => image.id+'' !== (result[0].label.substr(6, 7))));
-          setPercent(parseInt((6 - imageList.length) / images.length * 100));
+          setPercent(parseInt((6 - imageList.length) / props.goodsImages.length * 100));
         }
         // console.log(imageList);
       });
@@ -106,26 +108,27 @@ export default function GamePage(props) {
   }
 
   if(modalIsOpen) {
-    if((hintTime % 5) === 0) {
+    if((hintTime % 5) === 0 && (hintTime !== 0)) {
       setModalIsOpen(false);
+      
     }
     setTimeout(() => setHintTime(hintTime+1), 1000);
   }
 
   console.log(hintTime)
   return(
-    <div className={"GContainer"}>
-      
-      <ProgressBar progress={percent} />
+    <div className="GContainer">
+      <div>
+      <ProgressBar className="progress-bar" progress={percent} />
 
-        {/* <h3>{time}</h3> */}
-        {parseInt(((120-time)%3600)/60)>0 ?
-        <h3 className="lastTime">{parseInt(((120-time)%3600)/60)}분&nbsp; 
-        {(120-time)%60}초 남았습니다.</h3>:
-        <h3 className="lastTime">{(120-time)%60}초 남았습니다.</h3>
-        }
+      {/* <h3>{time}</h3> */}
+      {parseInt(((120-time)%3600)/60)>0 ?
+      <h3 className="lastTime">{parseInt(((120-time)%3600)/60)}분&nbsp; 
+      {(120-time)%60}초 남았습니다.</h3>:
+      <h3 className="lastTime">{(120-time)%60}초 남았습니다.</h3>
+      }
 
-      <button onClick={openModal} className="hintBtn">힌트보기</button>
+      <h3 onClick={openModal} className="hintBtn">힌트보기</h3>
 
       <div style={{ marginTop:'60px', display:'flex', justifyContent:'center' }}>
         <video
@@ -138,12 +141,10 @@ export default function GamePage(props) {
         }} 
         />
       </div>
-
-      <div style={{ display:'flex', justifyContent:'center' }}>{ result.label }: { result.confidence }</div>
-
       <Modal isOpen={modalIsOpen}>
         <ImageModal imageList={imageList}/>
       </Modal>
+      </div>
     </div>
           
   )

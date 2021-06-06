@@ -11,12 +11,13 @@ main {
   height: 100vh;
 }
 
-#HomeContainer {
+#HowContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   min-width: 100%;
   min-height: 100%;
+
   position: fixed;
   background-size: cover;
   background-position: center;
@@ -57,7 +58,7 @@ h3{
   position: absolute;
 }
 
-button  {
+.button  {
   width:11em;
   height:4em;
   position: absolute;
@@ -67,25 +68,23 @@ button  {
   background-color: #1F5378;
   border-radius: 2.5em;
 
-  font-family: 'Noto Sans KR', sans-serif;
-  color: white;
 }
 
-button:hover{
+.button:hover{
   background: none;
   cursor: pointer;
   border-color: #1F5378;
   color: #1F5378;
 }
 
-a{
+.Btnstart{
   font-family: 'Noto Sans KR', sans-serif;
   text-decoration: none;
   font-size: 2em;
   color: white;
 }
 
-a:hover{
+.Btnstart:hover{
   font-family: 'Noto Sans KR', sans-serif;
   text-decoration: none;
   font-size: 2em;

@@ -4,14 +4,16 @@ import Boss from "./Boss.png"
 
 function MainPage() {
   return (
-    <main className = {"HomeContainer"}>
-      <div className = "LeftContainer">
+    <main id = {"HomeContainer"}>
+      <div className = "round">      </div>
+      <div className = "text">
         <h1>작전명</h1>
         <h1>미림털기</h1>
-        <h2>지시 받은 물건들을 훔쳐라!</h2>
+        <h2>지시 받은 물건들을 훔쳐라!</h2>  
+        <img src = {Boss} className = "pho"></img>
+        <button className = "startBtn"><a href="/how_to_use" className = "a">시작하기</a></button>
       </div>
-      {/* <img src = {Boss} className = "pho"></img> */}
-      <button id = "startbtn"><a href="/how_to_use">시작하기</a></button>
+
     </main>
   );
 }
