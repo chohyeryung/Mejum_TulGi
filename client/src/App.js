@@ -5,7 +5,6 @@ import GameListPage from "./components/GameListPage/GameListPage";
 import GameRanking from "./components/GameRankingPage/GameRankingPage";
 
 import GameEnd from "./components/GameEndPage/GameEndPage";
-import GameEnd from "./components/GameEndPage/GameEndPage";
 import GameLandingPage from "./components/GameLandingPage";
 function App() {
   return (

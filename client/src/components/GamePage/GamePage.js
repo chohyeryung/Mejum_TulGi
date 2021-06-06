@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import ml5 from "ml5";
+import { BrowserRouter as Router } from "react-router-dom";
 import useInterval from "@use-it/interval";
 
 let classifier;
@@ -8,6 +9,7 @@ export default function GamePage(props) {
   const videoRef = useRef(null);
   const [result, setResult] = useState([]);
   const [time, setTime] = useState(0);
+  const images = props.data;
 
   useEffect(() => {
     const getUserMedia = async () => {
@@ -43,7 +45,6 @@ export default function GamePage(props) {
       });
     }
   }, 500);
-  console.log(result);
 
   setTimeout(() => setTime(time + 1), 1000);
 

@@ -24,8 +24,6 @@ function GameLandingPage() {
 
     }, []);
 
-    console.log(goodsImages);
-
     return (
         <div>
             {
