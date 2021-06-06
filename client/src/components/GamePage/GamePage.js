@@ -10,21 +10,22 @@ import '../../css/game_page.css';
 
 let classifier;
 
-export default function GamePage() {
+export default function GamePage(props) {
 
   const videoRef = useRef(null);
   const [result, setResult] = useState([]);
   const [time, setTime] = useState(0);
   const [percent, setPercent] = useState(0);
   
-  const images = [
-    { id: 1, label: '1.jpg' },
-    { id: 2, label: '2.jpg' },
-    { id: 3, label: '3.jpg' },
-    { id: 4, label: '4.jpg' },
-    { id: 5, label: '5.jpg' },
-    { id: 6, label: '6.jpg' },
-  ];
+  // const images = [
+  //   { id: 1, label: '1.jpg' },
+  //   { id: 2, label: '2.jpg' },
+  //   { id: 3, label: '3.jpg' },
+  //   { id: 4, label: '4.jpg' },
+  //   { id: 5, label: '5.jpg' },
+  //   { id: 6, label: '6.jpg' },
+  // ];
+  const images = props.goodsImages;
   const [imageList, setImageList] = useState(images);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [hintTime, setHintTime] = useState(0);
@@ -85,7 +86,7 @@ export default function GamePage() {
           setImageList(imageList.filter(image => image.id+'' !== (result[0].label.substr(6, 7))));
           setPercent(parseInt((6 - imageList.length) / images.length * 100));
         }
-        console.log(imageList);
+        // console.log(imageList);
       });
     }
   }, 500);
@@ -105,7 +106,7 @@ export default function GamePage() {
   }
 
   if(modalIsOpen) {
-    if(hintTime === 5) {
+    if((hintTime % 5) === 0) {
       setModalIsOpen(false);
     }
     setTimeout(() => setHintTime(hintTime+1), 1000);
