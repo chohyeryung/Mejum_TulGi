@@ -6,16 +6,16 @@ import axios from "axios";
 import "../../css/game_ranking.css";
 
 function GameRanking(props) {
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState([]);
 
   useEffect(() => {
     const endpoint = "http://localhost:5000/score";
-    axios.get(endpoint).then((response) => console.log(response.data));
-  }, []);
+    const request = axios.get(endpoint).then((response) => {
+      return setScore(response.data);
+    });
 
-  function scoreHandle() {
-    setScore();
-  }
+    score.forEach((s) => console.log(s));
+  }, []);
 
   return (
     <div className="container">
