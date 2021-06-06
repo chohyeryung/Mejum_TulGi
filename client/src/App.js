@@ -16,8 +16,8 @@ function App() {
         <Route path="/game_list" component={GameListPage} />
         <Route path="/game_end" component={GameEnd} />
         <Route path="/game_ranking" component={GameRanking} />
-        <Route path="/" component={MainPage} />
         <Route path="/how_to_use" component={HowToUsePage} />
+        <Route path="/" component={MainPage} />
       </Switch>
     </Router>
   )
