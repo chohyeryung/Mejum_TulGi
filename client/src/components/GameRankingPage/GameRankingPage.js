@@ -10,11 +10,9 @@ function GameRanking(props) {
 
   useEffect(() => {
     const endpoint = "http://localhost:5000/score";
-    const request = axios.get(endpoint).then((response) => {
-      return setScore(response.data);
+    axios.get(endpoint).then((response) => {
+      return setScore([...response.data]);
     });
-
-    score.forEach((s) => console.log(s));
   }, []);
 
   return (
@@ -23,20 +21,56 @@ function GameRanking(props) {
         <div className="silverScore">
           <img
             src={silvermedal}
-            style={{ marginRight: "20px" }}
+            style={{ marginRight: "80px" }}
             width="250"
             height="300"
+            alt="silver medal"
           />
+          <p>{score[1].NAME}</p>
+          <p>{score[2].score}</p>
         </div>
         <div className="goldScore">
-          <img src={goldmedal} width="300" height="370" />
+          <img
+            src={goldmedal}
+            style={{ marginRight: "80px" }}
+            width="300"
+            height="370"
+            alt="gold medal"
+          />
+          <p>{score[0].NAME}</p>
+          <p>{score[2].score}</p>
         </div>
         <div className="bronzeScore">
-          <img src={bronzemedal} width="200" height="250" />
+          <img src={bronzemedal} width="200" height="250" alt="bronze medal" />
+          <p>{score[2].NAME}</p>
+          <p>{score[2].score}</p>
         </div>
       </div>
       <div className="gameRetry">
-        <a href="/">Retry＞</a>
+        <a href="/">다시하기</a>
+      </div>
+      <div className="restRanking">
+        <p
+          align="center"
+          style="width:80%; height: 100px; border: 1px solid orange; border-radius: 2em;"
+        >
+          {" "}
+          4위{" "}
+        </p>
+        <p
+          align="center"
+          style="width:80%; height: 100px; border: 1px solid orange; border-radius: 2em;"
+        >
+          {" "}
+          5위{" "}
+        </p>
+        <p
+          align="center"
+          style="width:80%; height: 100px; border: 1px solid orange; border-radius: 2em;"
+        >
+          {" "}
+          6위{" "}
+        </p>
       </div>
     </div>
   );
