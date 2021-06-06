@@ -1,10 +1,9 @@
 import React from 'react'
 import "./HowToUsePage.css";
-import Boss from "./Boss.png"
 
 function HowToUsePage() {
     return (
-        <main id ={"HomeContainer"}>    
+        <main id ={"HowContainer"}>    
         <div className = "box">
           <p>10가지의 물건을 나에게 가져와라.</p>
           <p>가져올 물건은 처음 한 번만 보여줄 것이다.</p>
@@ -15,7 +14,7 @@ function HowToUsePage() {
           <p>행운을 빌지</p>
         </div>  
         <h3>Boss R.N</h3>  
-        <button id = "startbtn"><a href="/game">시작하기</a></button>        
+        <button id = "button" className="button"><a href="/game" className = "Btnstart">시작하기</a></button>        
       </main> 
       );
 }
