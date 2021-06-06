@@ -1,0 +1,16 @@
+
+.gameover_text{
+    margin-top: 150px;
+}
+.end{
+    width:11em;
+    height:4em;
+
+    margin-top: 50px;
+    margin-left: 550px;
+
+    background-color: #1F5378;
+    border-radius: 2.5em;  
+    font-family: 'Noto Sans KR', sans-serif;
+    color: white;
+}
