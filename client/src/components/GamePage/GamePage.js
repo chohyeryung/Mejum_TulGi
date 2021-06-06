@@ -130,7 +130,7 @@ export default function GamePage(props) {
 
       <h3 onClick={openModal} className="hintBtn">힌트보기</h3>
 
-      <div style={{ marginTop:'60px', display:'flex', justifyContent:'center' }}>
+      <div style={{ marginTop:'110px'}}>
         <video
           ref={videoRef}
           style={{
