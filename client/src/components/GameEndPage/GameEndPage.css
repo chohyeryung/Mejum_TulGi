@@ -1,4 +1,14 @@
-
+#divContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    background-size: cover;
+    background-position: center;
+    background-image: url("./backgroud.jpg");
+}
 .gameover_text{
     margin-top: 150px;
 }
