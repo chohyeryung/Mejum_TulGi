@@ -1,0 +1,110 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap');
+main {
+  width: 100%;
+  max-width: 100vw;
+  height: 100vh;
+}
+
+#HomeContainer {
+  display: flex;
+  min-width: 100%;
+  min-height: 100%;
+
+  position: fixed;
+  background-size: cover;
+  background-position: center;
+  background-image: url("./MainPage.jpg");
+}
+
+.round{
+  background-color: white;
+  opacity: 80%;
+  border-radius: 5em;
+
+  flex-direction: column;
+  justify-content: center;
+
+  width: 80%;
+  height: 80%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text{
+  flex-direction: column;
+  justify-content: center;
+
+  width: 80%;
+  height: 80%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text h1{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 5em;
+  color: #1F5378;
+
+  margin-left: 15%;
+  margin-bottom: -5%;
+}
+
+.text h2{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1.8em;
+  color: #444444;
+
+  margin-left: 15%;
+  margin-top: 5%;
+  opacity: 80%;
+}
+
+.pho{
+  width: 60vh;
+  height: 63vh;
+
+  bottom: 0;
+  position: fixed;
+  left: 40%;
+}
+
+.startBtn  {
+  width:13em;
+  height:6em;
+  
+  position: absolute;
+  bottom:10%;
+  right:5%;
+
+  background-color: #1F5378;
+  border-radius: 3em;
+
+}
+
+.startBtn:hover{
+	background: none;
+	cursor: pointer;
+  border-color: #1F5378;
+  color: #1F5378;
+}
+
+.a{
+  font-family: 'Noto Sans KR', sans-serif;
+  text-decoration: none;
+  font-size: 2.5em;
+  color: white;
+}
+
+.a:hover{
+  font-family: 'Noto Sans KR', sans-serif;
+  text-decoration: none;
+  font-size: 2.5em;
+  color: #1F5378;
+}

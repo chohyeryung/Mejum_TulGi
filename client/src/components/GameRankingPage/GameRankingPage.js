@@ -33,51 +33,42 @@ function GameRanking() {
       </div>
       <div className="medalImage">
         <div className="silverScore">
-          <img
-            src={silvermedal}
-            style={{ marginRight: "80px" }}
-            width="350"
-            height="400"
-            alt="silver medal"
-          />
+          <img src={silvermedal} width="350" height="410" alt="silver medal" />
           {score.map((s, index) => {
             if (index === 1) {
               return (
-                <p>
-                  {s.score}
+                <p align="center">
                   {s.NAME}
+                  <br></br>
+                  {s.score}
                 </p>
               );
             }
           })}
         </div>
         <div className="goldScore">
-          <img
-            src={goldmedal}
-            style={{ marginRight: "80px" }}
-            width="400"
-            height="500"
-            alt="gold medal"
-          />
+          <img src={goldmedal} width="400" height="510" alt="gold medal" />
           {score.map((s, index) => {
             if (index === 0) {
               return (
-                <p>
-                  {s.score}
+                <p align="center">
                   {s.NAME}
+                  <br></br>
+                  {s.score}
                 </p>
               );
             }
           })}
         </div>
         <div className="bronzeScore">
-          <img src={bronzemedal} width="300" height="350" alt="bronze medal" />
+          <img src={bronzemedal} width="300" height="370" alt="bronze medal" />
           {score.map((s, index) => {
             if (index === 2) {
               return (
-                <p>
-                  {s.score}
+                <p align="center">
                   {s.NAME}
+                  <br></br>
+                  {s.score}
                 </p>
               );
             }
@@ -88,21 +79,16 @@ function GameRanking() {
       <div style={{}}>
         {score.map((s, index) => {
           if (index >= 3) {
-          }
-          return (
-            <div className="restRanking">
-              <div>
-                <b>
-                  <font color="#1400FF">
-                    &nbsp;&nbsp;&nbsp;
-                    {index + 1}&nbsp;&nbsp;&nbsp;&nbsp;
-                  </font>
-                  {s.NAME}&nbsp;&nbsp;&nbsp;&nbsp;
-                  {s.score}
-                </b>
+            return (
+              <div className="restRanking">
+                <div className="attribute">
+                  <div className="index">&nbsp;&nbsp;&nbsp;{index + 1}</div>
+                  <div className="name">{s.NAME}</div>
+                  <div className="score">{s.score}점&nbsp;&nbsp;</div>
+                </div>
               </div>
-            </div>
-          );
+            );
+          }
         })}
       </div>
     </div>
