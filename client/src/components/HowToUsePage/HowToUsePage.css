@@ -58,7 +58,7 @@ h3{
   position: absolute;
 }
 
-.button  {
+#startbtn  {
   width:11em;
   height:4em;
   position: absolute;
@@ -70,7 +70,7 @@ h3{
 
 }
 
-.button:hover{
+#startbtn:hover{
   background: none;
   cursor: pointer;
   border-color: #1F5378;

@@ -75,10 +75,9 @@ main {
   left: 40%;
 }
 
-.startBtn  {
-  width:13em;
-  height:6em;
-  
+#startbtn  {
+  width:11em;
+  height:4em;
   position: absolute;
   bottom:10%;
   right:5%;
@@ -88,7 +87,7 @@ main {
 
 }
 
-.startBtn:hover{
+#startbtn:hover{
 	background: none;
 	cursor: pointer;
   border-color: #1F5378;

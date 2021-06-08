@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import goldmedal from "../image/goldmedal.png";
 import silvermedal from "../image/silvermedal.png";
 import bronzemedal from "../image/bronzemedal.png";
-
 import axios from "axios";
 import "../../css/game_ranking.css";
 
@@ -17,7 +16,7 @@ function GameRanking() {
         setLoading(true);
         const response = await axios.get(endpoint);
         setScore([...response.data]);
-      } catch(e) {
+      } catch (e) {
         console.log(e);
       }
       setLoading(false);
@@ -25,54 +24,72 @@ function GameRanking() {
     fetchScore();
   }, []);
 
-  if(loading) return <div>로딩중...</div>;
+  if (loading) return <div>로딩중...</div>;
+
   return (
     <div className="container">
+      <div className="gameRetry">
+        <a href="/">다시하기</a>
+      </div>
       <div className="medalImage">
-        <div className="silverScore">
-          <img
-            src={silvermedal}
-            style={{ marginRight: "20px" }}
-            width="250"
-            height="300"
-            alt="silver medal"
-          />
-          {score.map((s,index) => {
-            if(index === 1) {
-                return <p>{s.score}{s.NAME}</p>
+        <div className="bronzeScore">
+          <img src={silvermedal} width="350" height="410" alt="silver medal" />
+          {score.map((s, index) => {
+            if (index === 1) {
+              return (
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <span style={{ textAlign: 'center' }}>{s.name}</span>
+                  <span style={{ textAlign: 'center' }}>{s.score}s</span>
+                </div>
+              );
             }
-        })}
+          })}
         </div>
         <div className="goldScore">
-          <img src={goldmedal} width="300" height="370" alt="gold medal" />
-          {score.map((s,index) => {
-            if(index === 0) {
-                return <p>{s.score}{s.NAME}</p>
+          <img src={goldmedal} width="400" height="510" alt="gold medal" />
+          {score.map((s, index) => {
+            if (index === 0) {
+              return (
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <span style={{ textAlign: 'center' }}>{s.name}</span>
+                  <span style={{ textAlign: 'center' }}>{s.score}s</span>
+                </div>
+              );
             }
-        })}
+          })}
         </div>
         <div className="bronzeScore">
-          <img src={bronzemedal} width="200" height="250" alt="bronze medal" />
-          {score.map((s,index) => {
-            if(index === 2) {
-                return <p>{s.score}{s.NAME}</p>
+          <img src={bronzemedal} width="300" height="370" alt="bronze medal" />
+          {score.map((s, index) => {
+            if (index === 2) {
+              return (
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <span style={{ textAlign: 'center' }}>{s.name}</span>
+                  <span style={{ textAlign: 'center' }}>{s.score}s</span>
+                </div>
+              );
             }
-        })}
+          })}
         </div>
       </div>
-      <div className="gameRetry">
-        <a href="/">Retry＞</a>
-      </div>
-      <div style={{  }}>
-        {score.map((s,index) => {
-            if(index >= 3) {
-                return <p>{s.score}{s.NAME}</p>
-            }
+
+      <div style={{}}>
+        {score.map((s, index) => {
+          if (index >= 3) {
+            return (
+              <div key={s.name} className="restRanking">
+                <div className="attribute">
+                  <div className="index">&nbsp;&nbsp;&nbsp;{index + 1}</div>
+                  <div className="name">{s.NAME}</div>
+                  <div className="score">{s.score}s&nbsp;&nbsp;</div>
+                </div>
+              </div>
+            );
+          }
         })}
       </div>
     </div>
   );
-  
 }
 
 export default GameRanking;
