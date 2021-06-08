@@ -7,6 +7,8 @@ function GameEndRankPage(){
 
   return(
       <div id ={"divContainer"}>
+            <div className = "round">      </div>
+        
             <div className = 'container'>
                 <div className ="gameover_text">Game Over</div>
                 <button onClick={() =>history.push({pathname: "/how-to-use"})} className="end">완료</button>

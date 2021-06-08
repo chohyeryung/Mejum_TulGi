@@ -40,6 +40,7 @@ function GameEndRankPage(){
 
   return(
       <div id ={"divContainer"}>
+            <div className = "round">      </div>
             <div className = 'container'>
                 <div className ="gameover_text">Game Over</div>
                 <div className ="time_text">{time}초</div>

@@ -12,6 +12,26 @@
 .gameover_text{
     margin-top: 150px;
 }
+
+
+.box{
+    background-color: white;
+    opacity: 80%;
+    border-radius: 5em;
+  
+    flex-direction: column;
+    justify-content: center;
+  
+    width: 80%;
+    height: 80%;
+  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+
 .end{
     width:11em;
     height:4em;
