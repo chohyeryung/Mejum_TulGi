@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import "./EndGamePage.css";
+import "./EndGamePage.css";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 

@@ -28,7 +28,7 @@ con.connect()
 app.get('/score', (req,res) =>{
    
     con.query(
-        "select * from game_score order by score desc",
+        "select * from score order by score",
         (err, rows, fields) => {
             if(err){
                 console.log(err);
@@ -48,7 +48,7 @@ app.post('/score',(req,res)=> {
     let param = [name,score];
 
     con.query(
-        "insert into game_score(name,score) values(?,?);",
+        "insert into score(name,score) values(?,?);",
         param,
         (err, rows, fields) => {
             if(err){
