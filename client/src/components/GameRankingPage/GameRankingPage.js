@@ -5,72 +5,105 @@ import bronzemedal from "../image/bronzemedal.png";
 import axios from "axios";
 import "../../css/game_ranking.css";
 
-function GameRanking(props) {
+function GameRanking() {
   const [score, setScore] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const endpoint = "http://localhost:5000/score";
-    axios.get(endpoint).then((response) => {
-      return setScore([...response.data]);
-    });
+    const fetchScore = async () => {
+      try {
+        const endpoint = "http://localhost:5000/score/";
+        setLoading(true);
+        const response = await axios.get(endpoint);
+        setScore([...response.data]);
+      } catch (e) {
+        console.log(e);
+      }
+      setLoading(false);
+    };
+    fetchScore();
   }, []);
+
+  if (loading) return <div>로딩중...</div>;
 
   return (
     <div className="container">
+      <div className="gameRetry">
+        <a href="/">다시하기</a>
+      </div>
       <div className="medalImage">
         <div className="silverScore">
           <img
             src={silvermedal}
             style={{ marginRight: "80px" }}
-            width="250"
-            height="300"
+            width="350"
+            height="400"
             alt="silver medal"
           />
-          <p>{score[1].NAME}</p>
-          <p>{score[2].score}</p>
+          {score.map((s, index) => {
+            if (index === 1) {
+              return (
+                <p>
+                  {s.score}
+                  {s.NAME}
+                </p>
+              );
+            }
+          })}
         </div>
         <div className="goldScore">
           <img
             src={goldmedal}
             style={{ marginRight: "80px" }}
-            width="300"
-            height="370"
+            width="400"
+            height="500"
             alt="gold medal"
           />
-          <p>{score[0].NAME}</p>
-          <p>{score[2].score}</p>
+          {score.map((s, index) => {
+            if (index === 0) {
+              return (
+                <p>
+                  {s.score}
+                  {s.NAME}
+                </p>
+              );
+            }
+          })}
         </div>
         <div className="bronzeScore">
-          <img src={bronzemedal} width="200" height="250" alt="bronze medal" />
-          <p>{score[2].NAME}</p>
-          <p>{score[2].score}</p>
+          <img src={bronzemedal} width="300" height="350" alt="bronze medal" />
+          {score.map((s, index) => {
+            if (index === 2) {
+              return (
+                <p>
+                  {s.score}
+                  {s.NAME}
+                </p>
+              );
+            }
+          })}
         </div>
       </div>
-      <div className="gameRetry">
-        <a href="/">다시하기</a>
-      </div>
-      <div className="restRanking">
-        <p
-          align="center"
-          style="width:80%; height: 100px; border: 1px solid orange; border-radius: 2em;"
-        >
-          {" "}
-          4위{" "}
-        </p>
-        <p
-          align="center"
-          style="width:80%; height: 100px; border: 1px solid orange; border-radius: 2em;"
-        >
-          {" "}
-          5위{" "}
-        </p>
-        <p
-          align="center"
-          style="width:80%; height: 100px; border: 1px solid orange; border-radius: 2em;"
-        >
-          {" "}
-          6위{" "}
-        </p>
+
+      <div style={{}}>
+        {score.map((s, index) => {
+          if (index >= 3) {
+          }
+          return (
+            <div className="restRanking">
+              <div>
+                <b>
+                  <font color="#1400FF">
+                    &nbsp;&nbsp;&nbsp;
+                    {index + 1}&nbsp;&nbsp;&nbsp;&nbsp;
+                  </font>
+                  {s.NAME}&nbsp;&nbsp;&nbsp;&nbsp;
+                  {s.score}
+                </b>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

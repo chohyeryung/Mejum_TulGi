@@ -3,13 +3,12 @@
   height: 100%;
   padding: 0;
   margin: 0;
-  display: flex;
-  justify-content: center;
 }
 
 .medalImage {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .gameRetry {
@@ -22,30 +21,14 @@
 }
 
 .restRanking {
+  font-size: 35px;
+  line-height: 100px;
+  background-color: rgb(255, 255, 255);
+  margin-left: 300px;
+  margin-right: 300px;
+  margin-top: 35px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
   display: block;
-  width: fit-content;
-  background-color: rgb(195, 195, 195);
-  flex-direction: row;
-  justify-content: center;
 }
-
-/* 스크롤바 */
-.container {
-  width: 250px;
-  height: 140px;
-  overflow: auto;
-}
-.container::-webkit-scrollbar {
-  width: 10px;
-}
-.container::-webkit-scrollbar-thumb {
-  background-color: #838383;
-  border-radius: 10px;
-  background-clip: padding-box;
-  border: 2px solid transparent;
-}
-/* .container::-webkit-scrollbar-track {
-  background-color: rgb(212, 212, 212);
-  border-radius: 10px;
-  box-shadow: inset 0px 0px 5px white;
-} */
