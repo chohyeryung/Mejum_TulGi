@@ -1,0 +1,12 @@
+#ModalContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.ModalImage{
+    opacity: 0.5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,45 @@
+
+.Container{
+    background: url('../assets/images/classroom.jpg');
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.timer-wrapper{
+    display:flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.timer{
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#ImageContainer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    opacity: 1;
+}
+
+.ImageTable {
+    margin: 0;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+}
+
+.GoodsImage {
+    width: 200px;
+    height: 200px;
+    border-radius: 30px;
+    border: 1px solid black;
+    margin: 10px;
+}

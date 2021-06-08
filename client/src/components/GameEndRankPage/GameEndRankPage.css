@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'KoreanFrenchTypewriter';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/KoreanFrenchTypewriter.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+    .gameover_text{
+        text-align: center;
+        font-size: 100px;
+        font-family: 'Noto Sans KR', sans-serif;
+        text-decoration: none;
+        margin-top: 200px;
+    }
+
+    .time_text{
+        text-align: center;
+        font-size: 60px;
+        font-family: 'Noto Sans KR', sans-serif;
+        text-decoration: none;
+        color: black;
+    }
+    .go_game{
+        text-align: center;
+        color: black;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .check{
+        width: 50px;
+        height: 50px;
+        margin-top: 5px;
+    }
+    .input_name{
+        width: 250px;
+        height: 50px;
+        padding: 1em 1.5em;
+        outline: none;
+        margin-left: 40%;
+        margin-top: 20px;
+        border: 1px solid transparent;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 20px;
+        box-sizing: border-box;
+        color: black;
+        border-bottom-color: black;
+        text-align: center;
+    }
