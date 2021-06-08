@@ -8,7 +8,7 @@ import GameEndRank from "./components/GameEndRankPage/GameEndRankPage"
 import GameLandingPage from "./components/GameLandingPage";
 import MainPage from "./components/MainPage/MainPage";
 import HowToUsePage from "./components/HowToUsePage/HowToUsePage";
-import GameRanking from "./components/GameEndRankPage/GameEndRankPage";
+import GameRanking from "./components/GameRankingPage/GameRankingPage";
 
 function App() {
   return (
@@ -18,7 +18,6 @@ function App() {
         <Route path="/game_list" component={GameListPage} />
         <Route path="/game_end" component={GameEnd} />
         <Route path="/game_end_name" component={GameEndRank} />
-
         <Route path="/game_ranking" component={GameRanking} />
         <Route path="/how_to_use" component={HowToUsePage} />
         <Route path="/" component={MainPage} />
