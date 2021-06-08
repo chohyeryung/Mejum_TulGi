@@ -56,7 +56,7 @@ export default function GamePage(props) {
     if(imageList.length === 0) {
       console.log('성공');
       history.push({
-        pathname: "/game_end",
+        pathname: "/game_end_name",
         state: { time: time+hintTime }
       })
     }
@@ -96,7 +96,7 @@ export default function GamePage(props) {
   setTimeout(() => setTime(time+1), 1000);
   if(time === 120) {  //2분 제한시간
     history.push({
-      pathname: "/game_end",
+      pathname: "/game_end_name",
     })
 
     clearTimeout();
