@@ -37,11 +37,11 @@ function GameRanking() {
           {score.map((s, index) => {
             if (index === 1) {
               return (
-                <p align="center">
-                  {s.NAME}
+                <div align="center">
+                  {s.name}
                   <br></br>
                   {s.score}
-                </p>
+                </div>
               );
             }
           })}
@@ -51,11 +51,11 @@ function GameRanking() {
           {score.map((s, index) => {
             if (index === 0) {
               return (
-                <p align="center">
+                <div align="center">
                   {s.NAME}
                   <br></br>
                   {s.score}
-                </p>
+                </div>
               );
             }
           })}
@@ -65,11 +65,11 @@ function GameRanking() {
           {score.map((s, index) => {
             if (index === 2) {
               return (
-                <p align="center">
+                <div align="center">
                   {s.NAME}
                   <br></br>
                   {s.score}
-                </p>
+                </div>
               );
             }
           })}

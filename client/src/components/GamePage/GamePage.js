@@ -16,7 +16,8 @@ export default function GamePage(props) {
   const [time, setTime] = useState(0);
   const [percent, setPercent] = useState(0);
 
-  const [imageList, setImageList] = useState(props.goodsImages);
+  const images = props.goodsImages;
+  const [imageList, setImageList] = useState(images);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [hintTime, setHintTime] = useState(0);
   const history = useHistory();
@@ -84,7 +85,7 @@ export default function GamePage(props) {
             parseInt(((6 - imageList.length) / props.goodsImages.length) * 100)
           );
         }
-        console.log(imageList);
+        // console.log(imageList);
       });
     }
   }, 500);
@@ -104,7 +105,7 @@ export default function GamePage(props) {
   };
 
   if (modalIsOpen) {
-    if (hintTime === 5) {
+    if (hintTime % 5 === 0 && hintTime !== 0) {
       setModalIsOpen(false);
     }
     setTimeout(() => setHintTime(hintTime + 1), 1000);
@@ -130,13 +131,7 @@ export default function GamePage(props) {
           힌트보기
         </h3>
 
-        <div
-          style={{
-            marginTop: "60px",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+        <div style={{ marginTop: "110px" }}>
           <video
             ref={videoRef}
             style={{
