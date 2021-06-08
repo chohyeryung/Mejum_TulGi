@@ -46,3 +46,11 @@
     font-family: 'Noto Sans KR', sans-serif;
     color: white;
 }
+
+.photo{
+    width: 18em;
+    height: 17em;
+
+    bottom: 0;
+    position: fixed;
+}
