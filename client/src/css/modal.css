@@ -1,6 +1,7 @@
-#ModalContainer{
+.ModalContainer{
     display: flex;
     justify-content: center;
+    z-index: 3;
 }
 
 .ModalImage{

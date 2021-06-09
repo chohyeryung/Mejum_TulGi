@@ -5,6 +5,28 @@
     font-style: normal;
   }
 
+  .divContainer {
+    background: url("../../assets/images/classroom.jpg");
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .gameover-container {
+    width: 80%;
+    height: 80%;
+    background-color: beige;
+    border-radius: 30px;
+    z-index: 2;
+    margin: 30px;
+  }
+  
     .gameover_text{
         text-align: center;
         font-size: 100px;
@@ -25,7 +47,6 @@
         color: black;
         font-size: 16px;
         margin-top: 140px;
-        /* text-decoration: none; */
     }
 
     .check{
