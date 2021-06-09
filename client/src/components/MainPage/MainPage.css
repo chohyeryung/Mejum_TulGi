@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap');
 main {
   width: 100%;
@@ -40,6 +39,11 @@ main {
 
   width: 80%;
   height: 80%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .text h1{
@@ -61,13 +65,23 @@ main {
   opacity: 80%;
 }
 
-.pho{
+.boss{
   width: 60vh;
   height: 63vh;
 
   bottom: 0;
   position: fixed;
   left: 40%;
+}
+
+.student{
+  width: 55vh;
+  height: 63vh;
+
+  bottom: 0;
+  position: fixed;
+  float: left;
+  margin-left: 2%;
 }
 
 .startBtn  {
@@ -85,7 +99,9 @@ main {
 
 .startBtn:hover{
 	background: none;
+	cursor: pointer;
   border-color: #1F5378;
+  color: #1F5378;
 }
 
 .a{
