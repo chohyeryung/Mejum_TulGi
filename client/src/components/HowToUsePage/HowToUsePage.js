@@ -19,5 +19,4 @@ function HowToUsePage() {
       );
 }
 
-export default HowToUsePage;
-
+export default HowToUsePage
