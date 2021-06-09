@@ -5,6 +5,10 @@
   margin: 0;
   position: relative;
   z-index: 1;
+<<<<<<< HEAD
+=======
+  float: left;
+>>>>>>> 8bfd86c9bff9c6a5267b5d107fbe730d4e409ee8
 }
 
 .container::after {
@@ -54,6 +58,10 @@
   font-family: "Noto Sans CJK KR";
   font-size: x-large;
   text-decoration: none;
+<<<<<<< HEAD
+=======
+  color: black;
+>>>>>>> 8bfd86c9bff9c6a5267b5d107fbe730d4e409ee8
 }
 
 .restRanking {

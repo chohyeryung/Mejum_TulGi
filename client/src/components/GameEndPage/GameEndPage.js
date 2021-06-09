@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./GameEndPage.css";
 import { Link, useHistory } from "react-router-dom";
-import Boss from "./Boss.png";
 import axios from "axios";
 
 function EndGamePage() {

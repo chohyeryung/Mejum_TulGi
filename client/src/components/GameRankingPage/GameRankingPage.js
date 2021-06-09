@@ -37,11 +37,16 @@ function GameRanking() {
           {score.map((s, index) => {
             if (index === 1) {
               return (
-                <p align="center">
-                  {s.NAME}
-                  <br></br>
-                  {s.score}
-                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <span style={{ textAlign: "center" }}>{s.name}</span>
+                  <span style={{ textAlign: "center" }}>{s.score}s</span>
+                </div>
               );
             }
           })}
@@ -51,11 +56,16 @@ function GameRanking() {
           {score.map((s, index) => {
             if (index === 0) {
               return (
-                <p align="center">
-                  {s.NAME}
-                  <br></br>
-                  {s.score}
-                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <span style={{ textAlign: "center" }}>{s.name}</span>
+                  <span style={{ textAlign: "center" }}>{s.score}s</span>
+                </div>
               );
             }
           })}
@@ -65,11 +75,16 @@ function GameRanking() {
           {score.map((s, index) => {
             if (index === 2) {
               return (
-                <p align="center">
-                  {s.NAME}
-                  <br></br>
-                  {s.score}
-                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <span style={{ textAlign: "center" }}>{s.name}</span>
+                  <span style={{ textAlign: "center" }}>{s.score}s</span>
+                </div>
               );
             }
           })}
@@ -80,11 +95,11 @@ function GameRanking() {
         {score.map((s, index) => {
           if (index >= 3) {
             return (
-              <div className="restRanking">
+              <div key={s.name} className="restRanking">
                 <div className="attribute">
                   <div className="index">&nbsp;&nbsp;&nbsp;{index + 1}</div>
                   <div className="name">{s.NAME}</div>
-                  <div className="score">{s.score}점&nbsp;&nbsp;</div>
+                  <div className="score">{s.score}s&nbsp;&nbsp;</div>
                 </div>
               </div>
             );

@@ -15,7 +15,6 @@ export default function GamePage(props) {
   const [result, setResult] = useState([]);
   const [time, setTime] = useState(0);
   const [percent, setPercent] = useState(0);
-  
   const images = props.goodsImages;
   const [imageList, setImageList] = useState(images);
   const [modalIsOpen, setModalIsOpen] = useState(false);
