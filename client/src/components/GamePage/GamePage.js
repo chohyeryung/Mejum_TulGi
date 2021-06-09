@@ -19,6 +19,7 @@ export default function GamePage(props) {
   const [imageList, setImageList] = useState(images);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [hintTime, setHintTime] = useState(0);
+  const [back, setBack] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -93,6 +94,7 @@ export default function GamePage(props) {
   }
 
   const openModal = () => {
+    setBack(true);
     setModalIsOpen(true);
     
   }
@@ -100,15 +102,15 @@ export default function GamePage(props) {
   if(modalIsOpen) {
     if((hintTime % 5) === 0 && (hintTime !== 0)) {
       setModalIsOpen(false);
-      
+      setBack(false);
     }
     setTimeout(() => setHintTime(hintTime+1), 1000);
   }
 
-  console.log(hintTime)
+  console.log(back)
   return(
     <div className="GContainer">
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', visibility: back ? 'hidden' : 'visible' }}>
         <ProgressBar className="progress-bar" progress={percent} />
       </div>
       <div style={{ display:'flex', flexDirection: 'row' }}>
