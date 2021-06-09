@@ -44,7 +44,7 @@ function GameRanking() {
                     justifyContent: "center",
                   }}
                 >
-                  <span style={{ textAlign: "center" }}>{s.name}</span>
+                  <span style={{ textAlign: "center", fontWeight: 'bold' }}>{s.name}</span>
                   <span style={{ textAlign: "center" }}>{s.score}s</span>
                 </div>
               );
@@ -63,7 +63,7 @@ function GameRanking() {
                     justifyContent: "center",
                   }}
                 >
-                  <span style={{ textAlign: "center" }}>{s.name}</span>
+                  <span style={{ textAlign: "center", fontWeight: 'bold' }}>{s.name}</span>
                   <span style={{ textAlign: "center" }}>{s.score}s</span>
                 </div>
               );
@@ -82,7 +82,7 @@ function GameRanking() {
                     justifyContent: "center",
                   }}
                 >
-                  <span style={{ textAlign: "center" }}>{s.name}</span>
+                  <span style={{ textAlign: "center", fontWeight: 'bold' }}>{s.name}</span>
                   <span style={{ textAlign: "center" }}>{s.score}s</span>
                 </div>
               );
@@ -98,7 +98,7 @@ function GameRanking() {
               <div key={s.name} className="restRanking">
                 <div className="attribute">
                   <div className="index">&nbsp;&nbsp;&nbsp;{index + 1}</div>
-                  <div className="name">{s.NAME}</div>
+                  <div className="name">{s.name}</div>
                   <div className="score">{s.score}s&nbsp;&nbsp;</div>
                 </div>
               </div>

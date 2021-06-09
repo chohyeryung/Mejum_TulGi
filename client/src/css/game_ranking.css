@@ -1,21 +1,21 @@
 .container {
   width: 100%;
-  height: 100vh;
+  height: auto;
   padding: 0;
   margin: 0;
   position: relative;
   z-index: 1;
-<<<<<<< HEAD
-=======
   float: left;
->>>>>>> 8bfd86c9bff9c6a5267b5d107fbe730d4e409ee8
+  background-size: auto;
+  background-position: center;
 }
 
 .container::after {
   width: 100%;
-  height: 100vh;
+  height: 100vw;
   content: "";
-  background-image: url("../components/image/rankingbackground1.png");
+  
+  background-size: cover;
   position: absolute;
   top: 0;
   left: 0;
@@ -58,10 +58,7 @@
   font-family: "Noto Sans CJK KR";
   font-size: x-large;
   text-decoration: none;
-<<<<<<< HEAD
-=======
   color: black;
->>>>>>> 8bfd86c9bff9c6a5267b5d107fbe730d4e409ee8
 }
 
 .restRanking {
