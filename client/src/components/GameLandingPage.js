@@ -11,7 +11,7 @@ function GameLandingPage() {
 
     useEffect(() => {
         let results = [];
-        for(let i=1; i<=ImageData.length; i++) {
+        for(let i=0; i<8; i++) {
             let n = Math.floor(Math.random() * ImageData.length);
             if(results.indexOf(ImageData[n]) === -1) {
                 results.push(ImageData[n]);
