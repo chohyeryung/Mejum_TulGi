@@ -24,7 +24,7 @@ main {
   background-image: url("./MainPage.jpg");
 }
 
-.box{
+.use{
   height: 100%;
   width: 80%;
   background-color: antiquewhite;
@@ -41,7 +41,7 @@ main {
   padding-left: 5em;
 }
 
-.box p{
+.use p{
   font-family: 'KoreanFrenchTypewriter';
   font-size: 2.5em;
   color: #000;

@@ -11,7 +11,7 @@ function GameEndPage(){
             <div className = 'gameover-container'>
                 <div className ="gameover_text">Game Over</div>
                 <div className ="time_text">시간 초과</div>
-                <div className="go_game"><a href="/" style={{ textDecoration: 'none', color: 'black' }}><u>홈으로 이동</u></a></div>
+                <div className="go_game"><a href="/" style={{ textDecoration: 'none',  fontSize:'2em', fontFamily:'Noto Sans KR' }}> Home</a></div>
             </div>
       </div>
   );

@@ -4,7 +4,7 @@ import "./HowToUsePage.css";
 function HowToUsePage() {
     return (
         <main id ={"HowContainer"}>    
-        <div className = "box">
+        <div className = "use">
           <p>8가지의 물건을 나에게 가져와라.</p>
           <p>가져올 물건은 처음 한 번만 보여줄 것이다.</p>
           <p>힌트는 여러번 볼 수 있지만, 5초 후 사라진다.</p>
