@@ -24,16 +24,21 @@ function GameRanking() {
     fetchScore();
   }, []);
 
-  if (loading) return <div>로딩중...</div>;
+  if (loading) 
+  return (
+  <div style={{ display: 'flex', justifyContent:'center', alignContent: 'center', backgroundColor: 'aquamarine', width: '100%', height: '100vh' }}>
+    <h1>로딩중...</h1>
+  </div>
+  );
 
   return (
     <div className="container">
-      <div className="gameRetry">
-        <a href="/">다시하기</a>
-      </div>
       <div className="medalImage">
+      <div className="gameRetry">
+        <a href="/" style={{ textDecoration: 'none', color: 'blue' }}>다시하기</a>
+      </div>
         <div className="bronzeScore">
-          <img src={silvermedal} width="350" height="410" alt="silver medal" />
+          <img src={silvermedal} width="250" height="310" alt="silver medal" />
           {score.map((s, index) => {
             if (index === 1) {
               return (
@@ -52,7 +57,7 @@ function GameRanking() {
           })}
         </div>
         <div className="goldScore">
-          <img src={goldmedal} width="400" height="510" alt="gold medal" />
+          <img src={goldmedal} width="300" height="410" alt="gold medal" />
           {score.map((s, index) => {
             if (index === 0) {
               return (
@@ -71,7 +76,7 @@ function GameRanking() {
           })}
         </div>
         <div className="bronzeScore">
-          <img src={bronzemedal} width="300" height="370" alt="bronze medal" />
+          <img src={bronzemedal} width="240" height="310" alt="bronze medal" />
           {score.map((s, index) => {
             if (index === 2) {
               return (
@@ -91,7 +96,7 @@ function GameRanking() {
         </div>
       </div>
 
-      <div style={{}}>
+      <div className="leastContainer">
         {score.map((s, index) => {
           if (index >= 3) {
             return (
