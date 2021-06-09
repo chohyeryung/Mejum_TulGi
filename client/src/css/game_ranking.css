@@ -1,0 +1,92 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.container::after {
+  width: 100%;
+  height: 100vh;
+  content: "";
+  background-image: url("../components/image/rankingbackground1.png");
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 40%;
+}
+
+.medalImage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  z-index: 2;
+}
+
+.sliverScore {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.goldScore {
+  margin-left: 80px;
+  margin-right: 80px;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.bronzeScore {
+  margin-right: 50px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.gameRetry {
+  font-weight: 1000;
+  text-align: right;
+  color: black;
+  font-family: "Noto Sans CJK KR";
+  font-size: x-large;
+  text-decoration: none;
+}
+
+.restRanking {
+  line-height: 100px;
+  background-color: rgb(255, 255, 255);
+  margin-left: 300px;
+  margin-right: 300px;
+  margin-top: 35px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  display: block;
+}
+
+.attribute {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.index {
+  font-size: 40px;
+  color: blue;
+  font-weight: bolder;
+}
+
+.name {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.score {
+  font-size: 30px;
+  font-weight: 500;
+}

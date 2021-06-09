@@ -1,4 +1,4 @@
- @font-face {
+@font-face {
   font-family: 'KoreanFrenchTypewriter';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/KoreanFrenchTypewriter.woff') format('woff');
   font-weight: normal;
@@ -58,7 +58,7 @@ h3{
   position: absolute;
 }
 
-#startbtn  {
+.button  {
   width:11em;
   height:4em;
   position: absolute;
@@ -70,7 +70,7 @@ h3{
 
 }
 
-#startbtn:hover{
+.button:hover{
   background: none;
   cursor: pointer;
   border-color: #1F5378;
