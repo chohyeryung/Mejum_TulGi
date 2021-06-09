@@ -77,9 +77,8 @@ export default function GamePage(props) {
 
         if(result.length === 1) {
           setImageList(imageList.filter(image => image.id+'' !== (result[0].label.substr(6, 7))));
-          setPercent(parseInt((6 - imageList.length) / props.goodsImages.length * 100));
+          setPercent(parseInt((8 - imageList.length) / props.goodsImages.length * 100));
         }
-        // console.log(imageList);
       });
     }
   }, 500);
@@ -87,7 +86,7 @@ export default function GamePage(props) {
   setTimeout(() => setTime(time+1), 1000);
   if(time === 120) {  //2분 제한시간
     history.push({
-      pathname: "/game_end_name",
+      pathname: "/game_end",
     })
 
     clearTimeout();
@@ -109,25 +108,26 @@ export default function GamePage(props) {
   console.log(hintTime)
   return(
     <div className="GContainer">
-      <div>
-      <ProgressBar className="progress-bar" progress={percent} />
-
-      {/* <h3>{time}</h3> */}
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <ProgressBar className="progress-bar" progress={percent} />
+      </div>
+      <div style={{ display:'flex', flexDirection: 'row' }}>
+        {/* <h3>{time}</h3> */}
       {parseInt(((120-time)%3600)/60)>0 ?
-      <h3 className="lastTime">{parseInt(((120-time)%3600)/60)}분&nbsp; 
-      {(120-time)%60}초 남았습니다.</h3>:
-      <h3 className="lastTime">{(120-time)%60}초 남았습니다.</h3>
+        <span className="lastTime">{parseInt(((120-time)%3600)/60)}분&nbsp; 
+        {(120-time)%60}초 남았습니다.</span>:
+        <span className="lastTime">{(120-time)%60}초 남았습니다.</span>
       }
-
-      <h3 onClick={openModal} className="hintBtn">힌트보기</h3>
+      <span onClick={openModal} className="hintBtn">힌트보기</span>
+      </div>
+      
 
       <div style={{ marginTop:'110px'}}>
         <video
           ref={videoRef}
           style={{
             width:'100%',
-            height:500,
-            transform: 'scale(-1,1)',
+            height:600,
             justifyContent:'center'
         }} 
         />
@@ -136,7 +136,6 @@ export default function GamePage(props) {
         <ImageModal imageList={imageList}/>
       </Modal>
       </div>
-    </div>
           
   )
 }
