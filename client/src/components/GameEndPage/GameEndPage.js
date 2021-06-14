@@ -1,53 +1,19 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "./GameEndPage.css";
-import { Link, useHistory } from "react-router-dom";
-import axios from "axios";
+import {useLocation} from "react-router";
+function GameEndPage(){
+  const location = useLocation();
+  // const time = location.state.time;
 
-function EndGamePage() {
-  const [name, setName] = useState("");
-  const history = useHistory();
-  const ButtonClick = () => {
-    axios
-      .post("http://localhost:5000/score", {
-        name: name,
-        score: 3000,
-      })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
 
-    history.push({
-      pathname: "/game_list",
-    });
-  };
-
-  const handleChange = (e) => {
-    setName(e.target.value);
-  };
-
-  return (
-    <main id={"HomeContainer"}>
-      <div className="container">
-        <div className="gameover_text">Game Over</div>
-
-        <input
-          type="text"
-          placeholder="이름을 입력해주세요"
-          className="input_name"
-          onChange={handleChange}
-        />
-        <button onClick={ButtonClick} className="send_name">
-          완료
-        </button>
-
-        <Link to={{ pathname: "/how-to-use" }}>
-          <p className="go_game">랭킹 참여안하기</p>
-        </Link>
+  return(
+      <div className="divContainer">
+            <div className = 'gameover-container'>
+                <div className ="gameover_text">Game Over</div>
+                <div className ="time_text">시간 초과</div>
+                <div className="go_game"><a href="/" style={{ textDecoration: 'none', color: 'black' }}><u>홈으로 이동</u></a></div>
+            </div>
       </div>
-    </main>
   );
 }
-export default EndGamePage;
+export default GameEndPage;

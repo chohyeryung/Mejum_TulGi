@@ -1,11 +1,12 @@
 .GContainer {
   background: url("../assets/images/classroom2.jpg");
   width: 100%;
-  height: 100vh;
-  padding-top:80px;
+  height: 100%;
   flex-direction: column;
   background-size: cover;
   background-position: center;
+  display: flex;
+  justify-content: center;
 }
 
 .hintBtn {

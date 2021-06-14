@@ -6,8 +6,7 @@ import axios from 'axios';
 import check from './check-mark.png'
 function GameEndRankPage(){
   const location = useLocation();
-  // const time = location.state.time;
-  const time = 95
+  const time = 95;
   const [name, setName] = useState("")
   const history = useHistory();
   const ButtonClick = () => {
@@ -16,8 +15,8 @@ function GameEndRankPage(){
       alert("이름을 입력해주세요")
     }else{
       axios.post('http://localhost:5000/score',{
-        name : name,
-        score :time
+        name: name,
+        score: time
       })
       .then((res)=>{
         console.log(res)
@@ -28,7 +27,7 @@ function GameEndRankPage(){
   
   
       history.push({
-        pathname: "/how-to-use",
+        pathname: "/game_ranking",
       })
     }
    
@@ -39,20 +38,15 @@ function GameEndRankPage(){
   }
 
   return(
-      <div id ={"divContainer"}>
-            <div className = "round">      </div>
-            <div className = 'container'>
+      <div className="divContainer">
+            <div className = 'gameover-container'>
                 <div className ="gameover_text">Game Over</div>
                 <div className ="time_text">{time}초</div>
                 <div className="rank_name">
                   <input type="text" placeholder="이름을 입력해주세요" className="input_name" onChange={handleChange}/>
                   <img src={check} className="check" onClick={ButtonClick} />
                 </div>
-                <Link to={{ pathname: "/how-to-use" }}>
-                  <div className="go_game">랭킹 참여안하기</div>
-                </Link> 
-                
-                
+                  <div className="go_game"><a href="/" style={{ textDecoration: 'none', color: 'black', marginTop: '20px' }}><u>랭킹 참여안하기</u></a></div>
             </div>
       </div>
   );

@@ -3,7 +3,7 @@ import "../../css/progress_bar.css";
 
 function ProgressBar(props) {
   return (
-    <div className="container">
+    <div className="Pcontainer">
       <div className="progressbar-container">
         <div
           className="progressbar-complete"

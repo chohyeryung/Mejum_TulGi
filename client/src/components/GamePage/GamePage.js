@@ -19,6 +19,7 @@ export default function GamePage(props) {
   const [imageList, setImageList] = useState(images);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [hintTime, setHintTime] = useState(0);
+  const [back, setBack] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -47,7 +48,7 @@ export default function GamePage(props) {
     if(imageList.length === 0) {
       console.log('성공');
       history.push({
-        pathname: "/game_end",
+        pathname: "/game_end_name",
         state: { time: time+hintTime }
       })
     }
@@ -77,9 +78,8 @@ export default function GamePage(props) {
 
         if(result.length === 1) {
           setImageList(imageList.filter(image => image.id+'' !== (result[0].label.substr(6, 7))));
-          setPercent(parseInt((6 - imageList.length) / props.goodsImages.length * 100));
+          setPercent(parseInt((8 - imageList.length) / props.goodsImages.length * 100));
         }
-        // console.log(imageList);
       });
     }
   }, 500);
@@ -94,6 +94,7 @@ export default function GamePage(props) {
   }
 
   const openModal = () => {
+    setBack(true);
     setModalIsOpen(true);
     
   }
@@ -101,33 +102,34 @@ export default function GamePage(props) {
   if(modalIsOpen) {
     if((hintTime % 5) === 0 && (hintTime !== 0)) {
       setModalIsOpen(false);
-      
+      setBack(false);
     }
     setTimeout(() => setHintTime(hintTime+1), 1000);
   }
 
-  console.log(hintTime)
+  console.log(back)
   return(
     <div className="GContainer">
-      <div>
-      <ProgressBar className="progress-bar" progress={percent} />
-
-      {/* <h3>{time}</h3> */}
+      <div style={{ display: 'flex', justifyContent: 'center', visibility: back ? 'hidden' : 'visible' }}>
+        <ProgressBar className="progress-bar" progress={percent} />
+      </div>
+      <div style={{ display:'flex', flexDirection: 'row' }}>
+        {/* <h3>{time}</h3> */}
       {parseInt(((120-time)%3600)/60)>0 ?
-      <h3 className="lastTime">{parseInt(((120-time)%3600)/60)}분&nbsp; 
-      {(120-time)%60}초 남았습니다.</h3>:
-      <h3 className="lastTime">{(120-time)%60}초 남았습니다.</h3>
+        <span className="lastTime">{parseInt(((120-time)%3600)/60)}분&nbsp; 
+        {(120-time)%60}초 남았습니다.</span>:
+        <span className="lastTime">{(120-time)%60}초 남았습니다.</span>
       }
-
-      <h3 onClick={openModal} className="hintBtn">힌트보기</h3>
+      <span onClick={openModal} className="hintBtn">힌트보기</span>
+      </div>
+      
 
       <div style={{ marginTop:'110px'}}>
         <video
           ref={videoRef}
           style={{
             width:'100%',
-            height:500,
-            transform: 'scale(-1,1)',
+            height:600,
             justifyContent:'center'
         }} 
         />
@@ -136,7 +138,6 @@ export default function GamePage(props) {
         <ImageModal imageList={imageList}/>
       </Modal>
       </div>
-    </div>
           
   )
 }
