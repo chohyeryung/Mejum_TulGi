@@ -56,6 +56,7 @@ app.post('/score',(req,res)=> {
                 res.status(500).send('Internal Server Error')
             }
             console.log("save")
+            res.send("성공")
         }
     )
 })
