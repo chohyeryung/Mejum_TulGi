@@ -23,8 +23,8 @@ export default function Modal( props ) {
         //         </section>
         //     ) : null }
         // </div>
-        <div className="ModalContainer">
-            <table className="ModalImage">
+        <div id={"ModalContainer"}>
+            <table className={"ModalImage"}>
                 <tr>
                 {imageList.map((data, index) => {
                     return index < 4 ?

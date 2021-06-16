@@ -1,5 +1,24 @@
 {
   "dependencies": {
+    "concurrently": "6.2.0",
     "react-countdown-circle-timer": "^2.5.3"
-  }
+  },
+  "name": "mirim_tulgi",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run start\" \"npm run start --prefix client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chohyeryung/Mirim_TulGi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chohyeryung/Mirim_TulGi/issues"
+  },
+  "homepage": "https://github.com/chohyeryung/Mirim_TulGi#readme"
 }

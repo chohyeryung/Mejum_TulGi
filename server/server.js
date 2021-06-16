@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors')
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended : true}));
@@ -19,7 +19,6 @@ const con = mysql.createConnection({
     password : conf.password,
     database : conf.database,
     port :  conf.port
-
 });
 
 con.connect()
@@ -56,6 +55,7 @@ app.post('/score',(req,res)=> {
                 res.status(500).send('Internal Server Error')
             }
             console.log("save")
+            res.send("성공")
         }
     )
 })
