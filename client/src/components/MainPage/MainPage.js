@@ -1,7 +1,7 @@
 import React from "react";
 import "./MainPage.css";
 import Boss from "./Boss.png";
-import Student from "./student.png";
+import Student from "./Student.png";
 
 function MainPage() {
   return (
@@ -15,6 +15,7 @@ function MainPage() {
         <button className = "startBtn"><a href="/how_to_use" className = "a">시작하기</a></button>
       </div>
       <img src = {Student} className = "student"></img>
+      <a href="/game_ranking" className="gorank">랭킹</a>
     </main>
   );
 }
