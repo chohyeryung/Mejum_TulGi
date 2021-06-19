@@ -26,7 +26,7 @@ function GameRanking() {
 
   if (loading) 
   return (
-  <div style={{ display: 'flex', justifyContent:'center', alignContent: 'center', backgroundColor: 'aquamarine', width: '100%', height: '100vh' }}>
+  <div style={{ display: 'flex', justifyContent:'center', alignContent: 'center', backgroundColor: 'rgb(224, 224, 224)', width: '100%', height: '100vh' }}>
     <h1>로딩중...</h1>
   </div>
   );
