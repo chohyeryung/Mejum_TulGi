@@ -5,17 +5,21 @@ import Student from "./student.png";
 
 function MainPage() {
   return (
-    <main id = {"HomeContainer"}>
-      <div className = "round">      </div>
-      <div className = "text">
-        <h1>작전명</h1>
-        <h1>미림털기</h1>
-        <h2>지시 받은 물건들을 훔쳐라!</h2>  
-        <img src = {Boss} className = "boss"></img>
-        <button className = "startBtn"><a href="/how_to_use" className = "a">시작하기</a></button>
+    <div className="HomeContainer">
+      <div className="round"></div>
+      <div className="left">
+        <img src={Student} className="student" alt="Student"></img>
       </div>
-      <img src = {Student} className = "student"></img>
-    </main>
+      <div className="center">
+        <span>작전명</span><br></br>
+        <span>미림털기</span>
+        <h2>지시 받은 물건들을 훔쳐라!</h2>
+        <button className="startBtn"><a href="/how_to_use">시작하기</a></button>
+      </div>
+      <div className="right">
+        <img src={Boss} className="boss" alt="Boss"></img>
+      </div>
+    </div>
   );
 }
 

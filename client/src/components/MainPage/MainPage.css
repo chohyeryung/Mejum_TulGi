@@ -1,22 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap");
 main {
   width: 100%;
   max-width: 100vw;
   height: 100vh;
 }
 
-#HomeContainer {
+.HomeContainer {
   display: flex;
   min-width: 100%;
   min-height: 100%;
-
+  flex-direction: row;
+  align-items: center;
   position: fixed;
   background-size: cover;
   background-position: center;
   background-image: url("./MainPage.jpg");
 }
 
-.round{
+.round {
   background-color: white;
   opacity: 80%;
   border-radius: 5em;
@@ -31,89 +32,77 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 0;
 }
 
-.text{
-  flex-direction: column;
-  justify-content: center;
-
-  width: 80%;
-  height: 80%;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.text h1{
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 5em;
-  color: #1F5378;
-
-  margin-left: 15%;
-  margin-bottom: -5%;
-}
-
-.text h2{
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 1.8em;
-  color: #444444;
-
-  margin-left: 15%;
-  margin-top: 5%;
-  opacity: 80%;
-}
-
-.boss{
-  width: 60vh;
-  height: 63vh;
-
-  bottom: 0;
-  position: fixed;
-  left: 40%;
-}
-
-.student{
-  width: 55vh;
-  height: 63vh;
-
-  bottom: 0;
-  position: fixed;
-  float: left;
+.left {
+  z-index: 1;
+  align-self: flex-end;
   margin-left: 2%;
 }
 
-.startBtn  {
-  width:13em;
-  height:6em;
-  
-  position: absolute;
-  bottom:10%;
-  right:5%;
+.right {
+  z-index: 1;
+  align-self: flex-end;
+}
 
-  background-color: #1F5378;
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+.center span {
+  font-family: "Noto Sans KR", sans-serif;
+  color: #1f5378;
+  text-align: center;
+  font-size: 6rem;
+}
+
+.center h2 {
+  font-family: "Noto Sans KR", sans-serif;
+  color: #444444;
+  opacity: 80%;
+  text-align: center;
+}
+
+.boss {
+  width: 60vh;
+  height: 60vh;
+}
+
+.student {
+  width: 55vh;
+  height: 63vh;
+}
+
+.startBtn {
+  align-self: center;
+  background-color: #1f5378;
   border-radius: 3em;
-
+  border: none;
+  width: 80%;
+  padding: 3%;
+  margin-top: 10%;
 }
 
-.startBtn:hover{
-	background: none;
-	cursor: pointer;
-  border-color: #1F5378;
-  color: #1F5378;
+.startBtn:hover {
+  background: none;
+  cursor: pointer;
+  border-color: #1f5378;
 }
 
-.a{
-  font-family: 'Noto Sans KR', sans-serif;
+.startBtn a {
+  font-family: "Noto Sans KR", sans-serif;
   text-decoration: none;
   font-size: 2.5em;
   color: white;
 }
 
-.a:hover{
-  font-family: 'Noto Sans KR', sans-serif;
+.startBtn a:hover {
+  font-family: "Noto Sans KR", sans-serif;
   text-decoration: none;
   font-size: 2.5em;
-  color: #1F5378;
+  color: #1f5378;
 }

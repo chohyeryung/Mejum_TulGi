@@ -2,10 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import Modal from 'react-modal';
 import { useHistory } from "react-router-dom";
 import ml5 from 'ml5';
+import Loader from 'react-loader-spinner';
 import useInterval from '@use-it/interval';
 import ProgressBar from "./ProgressBar";
 
 import ImageModal from '../Modal/Modal';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import '../../css/game_page.css';
 
 let classifier;
@@ -20,6 +22,7 @@ export default function GamePage(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [hintTime, setHintTime] = useState(0);
   const [back, setBack] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -31,6 +34,7 @@ export default function GamePage(props) {
         });
         videoRef.current.srcObject = stream;
         videoRef.current.play();
+        setLoaded(true);
         
       } catch(err) {
         console.log(err)
@@ -52,10 +56,15 @@ export default function GamePage(props) {
         state: { time: time+hintTime }
       })
     }
-  }, []);
+  });
+
+  useEffect(() => {
+    setPercent(parseInt((8 - imageList.length) / props.goodsImages.length * 100));
+  }, [props.goodsImages.length, imageList.length]);
 
   // 0.5초마다 분석
   useInterval(() => {
+    console.log(imageList);
     if (classifier) {
       classifier.classify(videoRef.current, (error, results) => {
         if (error) {
@@ -78,7 +87,6 @@ export default function GamePage(props) {
 
         if(result.length === 1) {
           setImageList(imageList.filter(image => image.id+'' !== (result[0].label.substr(6, 7))));
-          setPercent(parseInt((8 - imageList.length) / props.goodsImages.length * 100));
         }
       });
     }
@@ -107,37 +115,43 @@ export default function GamePage(props) {
     setTimeout(() => setHintTime(hintTime+1), 1000);
   }
 
-  console.log(back)
+  // console.log(back)
   return(
     <div className="GContainer">
-      <div style={{ display: 'flex', justifyContent: 'center', visibility: back ? 'hidden' : 'visible' }}>
-        <ProgressBar className="progress-bar" progress={percent} />
-      </div>
-      <div style={{ display:'flex', flexDirection: 'row' }}>
-        {/* <h3>{time}</h3> */}
-      {parseInt(((120-time)%3600)/60)>0 ?
-        <span className="lastTime">{parseInt(((120-time)%3600)/60)}분&nbsp; 
-        {(120-time)%60}초 남았습니다.</span>:
-        <span className="lastTime">{(120-time)%60}초 남았습니다.</span>
-      }
-      <span onClick={openModal} className="hintBtn">힌트보기</span>
-      </div>
-      
-
-      <div style={{ marginTop:'110px'}}>
-        <video
-          ref={videoRef}
-          style={{
-            width:'100%',
-            height:600,
-            justifyContent:'center'
-        }} 
-        />
-      </div>
-      <Modal isOpen={modalIsOpen}>
-        <ImageModal imageList={imageList}/>
-      </Modal>
-      </div>
+      <Loader
+        type="Watch"
+        color="#1f5378"
+        height={200}
+        width={200}
+        visible={!loaded}
+        style={{display:'flex', justifyContent:'center', marginTop: '100px' }}
+      />
+          <div style={{ display: 'flex', justifyContent: 'center', visibility: back ? 'hidden' : 'visible' }}>
+            <ProgressBar className="progress-bar" progress={percent} />
+          </div>
+          <div style={{ display:'flex', flexDirection: 'row' }}>
+          {/* <h3>{time}</h3> */}
+          {parseInt(((120-time)%3600)/60)>0 ?
+            <span className="lastTime">{parseInt(((120-time)%3600)/60)}분&nbsp; 
+            {(120-time)%60}초 남았습니다.</span>:
+            <span className="lastTime">{(120-time)%60}초 남았습니다.</span>
+          }
+            <span onClick={openModal} className="hintBtn">힌트보기</span>
+          </div>
+          <div style={{ marginTop:'110px'}}>
+            <video
+              ref={videoRef}
+              style={{
+                width:'100%',
+                height:600,
+                justifyContent:'center'
+              }} 
+            />
+          </div>
+          <Modal isOpen={modalIsOpen}>
+            <ImageModal imageList={imageList}/>
+          </Modal>
+    </div>
           
   )
 }

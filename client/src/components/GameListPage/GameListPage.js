@@ -31,7 +31,7 @@ export default function GameListPage(props) {
         </CountdownCircleTimer>
       </div>
 
-      <div id={"ImageContainer"}>
+      <div className="ImageContainer">
         <table className={"ImageTable"}>
           <tr>
             {props.goodsImages.map((data, index) => {
