@@ -21,7 +21,7 @@ main {
 
 .round {
   background-color: white;
-  opacity: 80%;
+  opacity: 0.6;
   border-radius: 5em;
 
   flex-direction: column;

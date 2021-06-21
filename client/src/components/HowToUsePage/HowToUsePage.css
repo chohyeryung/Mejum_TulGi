@@ -25,11 +25,11 @@ main {
   background-image: url("./MainPage.jpg");
 }
 
-.box {
+.how-box {
   height: 100%;
   width: 80%;
   background-color: antiquewhite;
-
+  opacity: 0.6;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -42,7 +42,7 @@ main {
   padding-left: 5em;
 }
 
-.box p {
+.how-box p {
   font-family: "KoreanFrenchTypewriter";
   font-size: 3em;
   color: #000;
