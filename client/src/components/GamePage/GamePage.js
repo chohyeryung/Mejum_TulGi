@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import Modal from "react-modal";
 import { useHistory } from "react-router-dom";
-import ml5 from "ml5";
-import Loader from "react-loader-spinner";
-import useInterval from "@use-it/interval";
+import ml5 from 'ml5';
+import Loader from 'react-loader-spinner';
+import useInterval from '@use-it/interval';
 import ProgressBar from "./ProgressBar";
 
-import ImageModal from "../Modal/Modal";
+import ImageModal from '../Modal/Modal';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import "../../css/game_page.css";
+import '../../css/game_page.css';
 
 let classifier;
 
@@ -35,8 +35,9 @@ export default function GamePage(props) {
         videoRef.current.srcObject = stream;
         videoRef.current.play();
         setLoaded(true);
-      } catch (err) {
-        console.log(err);
+        
+      } catch(err) {
+        console.log(err)
       }
     };
 
@@ -56,15 +57,13 @@ export default function GamePage(props) {
   });
 
   useEffect(() => {
-    setPercent(
-      parseInt(((8 - imageList.length) / props.goodsImages.length) * 100)
-    );
+    setPercent(parseInt((8 - imageList.length) / props.goodsImages.length * 100));
   }, [props.goodsImages.length, imageList.length]);
 
   // 0.5초마다 분석
   useInterval(() => {
     console.log(imageList);
-    if (classifier) {
+    if (classifier && !loaded) {
       classifier.classify(videoRef.current, (error, results) => {
         if (error) {
           console.log(error);
@@ -86,18 +85,17 @@ export default function GamePage(props) {
         //result
         //label: "Class 5", confidence: 0.9998790025...
 
-        if (result.length === 1) {
-          setImageList(
-            imageList.filter(
-              (image) => image.id + "" !== result[0].label.substr(6, 7)
-            )
-          );
+        if(result.length === 1) {
+          setImageList(imageList.filter(image => image.id+'' !== (result[0].label.substr(6, 7))));
         }
       });
     }
   }, 500);
 
-  setTimeout(() => setTime(time + 1), 1000);
+  if(loaded) {
+    setTimeout(() => setTime(time + 1), 1000);
+  }
+
   if (time === 120) {
     //2분 제한시간
     history.push({
@@ -121,63 +119,42 @@ export default function GamePage(props) {
   }
 
   // console.log(back)
-  return (
+  return(
     <div className="GContainer">
-      {!loaded ? (
-        <Loader
-          type="Watch"
-          color="#1f5378"
-          height={200}
-          width={200}
-          visible={!loaded}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "100px",
-          }}
-        />
-      ) : (
-        <div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              visibility: back ? "hidden" : "visible",
-            }}
-          >
+      <Loader
+        type="Watch"
+        color="#1f5378"
+        height={200}
+        width={200}
+        visible={!loaded}
+        style={{display:'flex', justifyContent:'center', marginTop: '100px' }}
+      />
+          <div style={{ display: 'flex', justifyContent: 'center', visibility: back ? 'hidden' : 'visible' }}>
             <ProgressBar className="progress-bar" progress={percent} />
           </div>
-          <div style={{ display: "flex", flexDirection: "row" }}>
-            {/* <h3>{time}</h3> */}
-            {parseInt(((120 - time) % 3600) / 60) > 0 ? (
-              <span className="lastTime">
-                {parseInt(((120 - time) % 3600) / 60)}분&nbsp;
-                {(120 - time) % 60}초 남았습니다.
-              </span>
-            ) : (
-              <span className="lastTime">
-                {(120 - time) % 60}초 남았습니다.
-              </span>
-            )}
-            <span onClick={openModal} className="hintBtn">
-              힌트보기
-            </span>
+          <div style={{ display:'flex', flexDirection: 'row' }}>
+          {/* <h3>{time}</h3> */}
+          {parseInt(((120-time)%3600)/60)>0 ?
+            <span className="lastTime">{parseInt(((120-time)%3600)/60)}분&nbsp; 
+            {(120-time)%60}초 남았습니다.</span>:
+            <span className="lastTime">{(120-time)%60}초 남았습니다.</span>
+          }
+            <span onClick={openModal} className="hintBtn">힌트보기</span>
           </div>
-          <div style={{ marginTop: "110px" }}>
+          <div style={{ marginTop:'110px'}}>
             <video
               ref={videoRef}
               style={{
-                width: "100%",
-                height: 600,
-                justifyContent: "center",
-              }}
+                width:'100%',
+                height:600,
+                justifyContent:'center'
+              }} 
             />
           </div>
           <Modal isOpen={modalIsOpen}>
-            <ImageModal imageList={imageList} />
+            <ImageModal imageList={imageList}/>
           </Modal>
-        </div>
-      )}
     </div>
-  );
+          
+  )
 }
