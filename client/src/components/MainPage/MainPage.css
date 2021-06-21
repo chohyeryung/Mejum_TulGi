@@ -11,10 +11,12 @@ main {
   min-height: 100%;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   position: fixed;
   background-size: cover;
   background-position: center;
   background-image: url("./MainPage.jpg");
+  z-index: -1;
 }
 
 .round {
@@ -65,6 +67,7 @@ main {
   color: #444444;
   opacity: 80%;
   text-align: center;
+  margin-top: 25%;
 }
 
 .boss {
@@ -78,31 +81,87 @@ main {
 }
 
 .startBtn {
+  font-family: "Noto Sans KR", sans-serif;
+  text-decoration: none;
+  font-size: 2.5em;
+  color: white;
   align-self: center;
+  text-align: center;
   background-color: #1f5378;
   border-radius: 3em;
-  border: none;
   width: 80%;
   padding: 3%;
   margin-top: 10%;
 }
 
 .startBtn:hover {
-  background: none;
-  cursor: pointer;
-  border-color: #1f5378;
-}
-
-.startBtn a {
-  font-family: "Noto Sans KR", sans-serif;
-  text-decoration: none;
-  font-size: 2.5em;
-  color: white;
-}
-
-.startBtn a:hover {
   font-family: "Noto Sans KR", sans-serif;
   text-decoration: none;
   font-size: 2.5em;
   color: #1f5378;
+  background: none;
+}
+
+@keyframes rotate_image {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mainText {
+  height: 100px;
+}
+
+.mainText span {
+  position: relative;
+  top: 20px;
+  display: inline-block;
+  animation: bounce 0.3s ease infinite alternate;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 80px;
+  color: #1f5378;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+    0 5px 0 #ccc, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent,
+    0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.mainText span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.mainText span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.mainText span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.mainText span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.mainText span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.mainText span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.mainText span:nth-child(8) {
+  animation-delay: 0.7s;
+}
+
+@keyframes bounce {
+  100% {
+    top: -20px;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+      0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc,
+      0 50px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.ranking-text {
+  font-family: "Noto Sans KR", sans-serif;
+  text-decoration: #1f5378;
+  font-size: 1em;
+  color: #1f5378;
+  background: none;
+  text-align: center;
+  margin-top: 5%;
 }

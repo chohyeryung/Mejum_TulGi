@@ -12,7 +12,7 @@ function GameRanking() {
   useEffect(() => {
     const fetchScore = async () => {
       try {
-        const endpoint = "http://localhost:5000/score/";
+        const endpoint = "https://mirimtulgi.emirim.kr/score";
         setLoading(true);
         const response = await axios.get(endpoint);
         setScore([...response.data]);
@@ -24,19 +24,30 @@ function GameRanking() {
     fetchScore();
   }, []);
 
-  if (loading) 
-  return (
-  <div style={{ display: 'flex', justifyContent:'center', alignContent: 'center', backgroundColor: 'rgb(224, 224, 224)', width: '100%', height: '100vh' }}>
-    <h1>로딩중...</h1>
-  </div>
-  );
+  if (loading)
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignContent: "center",
+          backgroundColor: "rgb(224, 224, 224)",
+          width: "100%",
+          height: "100vh",
+        }}
+      >
+        <h1>로딩중...</h1>
+      </div>
+    );
 
   return (
     <div className="container">
       <div className="medalImage">
-      <div className="gameRetry">
-        <a href="/" style={{ textDecoration: 'none', color: 'blue' }}>다시하기</a>
-      </div>
+        <div className="gameRetry">
+          <a href="/" style={{ textDecoration: "none", color: "blue" }}>
+            다시하기
+          </a>
+        </div>
         <div className="bronzeScore">
           <img src={silvermedal} width="250" height="310" alt="silver medal" />
           {score.map((s, index) => {
@@ -49,7 +60,9 @@ function GameRanking() {
                     justifyContent: "center",
                   }}
                 >
-                  <span style={{ textAlign: "center", fontWeight: 'bold' }}>{s.name}</span>
+                  <span style={{ textAlign: "center", fontWeight: "bold" }}>
+                    {s.name}
+                  </span>
                   <span style={{ textAlign: "center" }}>{s.score}s</span>
                 </div>
               );
@@ -68,7 +81,9 @@ function GameRanking() {
                     justifyContent: "center",
                   }}
                 >
-                  <span style={{ textAlign: "center", fontWeight: 'bold' }}>{s.name}</span>
+                  <span style={{ textAlign: "center", fontWeight: "bold" }}>
+                    {s.name}
+                  </span>
                   <span style={{ textAlign: "center" }}>{s.score}s</span>
                 </div>
               );
@@ -87,7 +102,9 @@ function GameRanking() {
                     justifyContent: "center",
                   }}
                 >
-                  <span style={{ textAlign: "center", fontWeight: 'bold' }}>{s.name}</span>
+                  <span style={{ textAlign: "center", fontWeight: "bold" }}>
+                    {s.name}
+                  </span>
                   <span style={{ textAlign: "center" }}>{s.score}s</span>
                 </div>
               );

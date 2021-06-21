@@ -18,6 +18,26 @@ const renderTime = ({ remainingTime }) => {
 export default function GameListPage(props) {
   return (
     <div className="Container">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
+      >
+        <span className="mainText">
+          <span>10</span>
+          <span>초</span>
+          <span>안</span>
+          <span>에</span>
+          <span>&nbsp;</span>
+          <span>외</span>
+          <span>우</span>
+          <span>도</span>
+          <span>록</span>
+        </span>
+      </div>
+      <br />
       <div className="timer-wrapper">
         <CountdownCircleTimer
           isPlaying
