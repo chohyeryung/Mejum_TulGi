@@ -1,9 +1,13 @@
 import React from "react";
 import "./HowToUsePage.css";
+import Boss from "./hi_boss.png";
 
 function HowToUsePage() {
   return (
     <main id={"HowContainer"}>
+      <div style={{ position: 'absolute', right: 0, top: '-10%' }}>
+        <img src={Boss} alt="hi boss" />
+      </div>
       <div className="how-box">
         <p>8가지의 물건을 나에게 가져와라.</p>
         <p>가져올 물건은 처음 한 번만 보여줄 것이다.</p>
