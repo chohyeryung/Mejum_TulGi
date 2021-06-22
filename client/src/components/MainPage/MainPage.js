@@ -85,7 +85,7 @@ function MainPage() {
           시작하기
         </a>
         <a class="ranking-text" href="/game_ranking">
-          <u>랭킹으로 바로가기</u>
+          랭킹가기
         </a>
       </div>
       <div className="right">

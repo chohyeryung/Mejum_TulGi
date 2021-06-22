@@ -46,7 +46,7 @@ function GameEndRankPage(){
                   <input type="text" placeholder="이름을 입력해주세요" className="input_name" onChange={handleChange}/>
                   <img src={check} className="check" onClick={ButtonClick} />
                 </div>
-                  <div className="go_game"><a href="/" style={{ textDecoration: 'none', color: 'black', marginTop: '20px' }}><u>랭킹 참여안하기</u></a></div>
+                  <div className="go_game"><a href="/" className="no_rank">랭킹 참여안하기</a></div>
             </div>
       </div>
   );
