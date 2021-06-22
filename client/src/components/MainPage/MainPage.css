@@ -6,8 +6,9 @@ main {
 }
 
 @font-face {
-  font-family: 'RixYeoljeongdo_Regular';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff') format('woff');
+  font-family: "RixYeoljeongdo_Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -123,12 +124,13 @@ main {
   top: 20px;
   display: inline-block;
   animation: bounce 0.3s ease infinite alternate;
-  font-family: 'RixYeoljeongdo_Regular';
+  font-family: "RixYeoljeongdo_Regular";
   font-size: 100px;
   color: #1f5378;
-  text-shadow: 0 1px 0 rgb(248, 242, 226), 0 2px 0 rgb(248, 242, 226), 0 3px 0 rgb(248, 242, 226), 0 4px 0 rgb(248, 242, 226),
-    0 5px 0 rgb(248, 242, 226), 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent,
-    0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 0 rgb(248, 242, 226), 0 2px 0 rgb(248, 242, 226),
+    0 3px 0 rgb(248, 242, 226), 0 4px 0 rgb(248, 242, 226),
+    0 5px 0 rgb(248, 242, 226), 0 6px 0 transparent, 0 7px 0 transparent,
+    0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
 }
 
 .mainText span:nth-child(2) {
@@ -156,9 +158,11 @@ main {
 @keyframes bounce {
   100% {
     top: -20px;
-    text-shadow: 0 1px 0 rgb(248, 242, 226), 0 2px 0 rgb(248, 242, 226), 0 3px 0 rgb(248, 242, 226), 0 4px 0 rgb(248, 242, 226),
-      0 5px 0 rgb(248, 242, 226), 0 6px 0 rgb(248, 242, 226), 0 7px 0 rgb(248, 242, 226), 0 8px 0 rgb(248, 242, 226), 0 9px 0 rgb(248, 242, 226),
-      0 50px 25px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 0 rgb(248, 242, 226), 0 2px 0 rgb(248, 242, 226),
+      0 3px 0 rgb(248, 242, 226), 0 4px 0 rgb(248, 242, 226),
+      0 5px 0 rgb(248, 242, 226), 0 6px 0 rgb(248, 242, 226),
+      0 7px 0 rgb(248, 242, 226), 0 8px 0 rgb(248, 242, 226),
+      0 9px 0 rgb(248, 242, 226), 0 50px 25px rgba(0, 0, 0, 0.2);
   }
 }
 

@@ -5,7 +5,7 @@ import Boss from "./hi_boss.png";
 function HowToUsePage() {
   return (
     <main id={"HowContainer"}>
-      <div style={{ position: 'absolute', right: 0, top: '-10%' }}>
+      <div style={{ position: "absolute", right: 0 }}>
         <img src={Boss} alt="hi boss" />
       </div>
       <div className="how-box">
