@@ -25,6 +25,7 @@
     border-radius: 30px;
     z-index: 2;
     margin: 30px;
+    opacity: 0.8;
   }
   
     .gameover_text{
@@ -33,6 +34,7 @@
         font-family: 'Noto Sans KR', sans-serif;
         text-decoration: none;
         margin-top: 200px;
+        color: #1f5378;
     }
 
     .time_text{
@@ -79,5 +81,17 @@
         text-align: center;
         margin-left: 16px;
         background: none;
+        margin-bottom: 5em;
+
         
     }
+
+    .no_rank{
+      text-align: center;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: #1f5378;
+      margin-top: 10px;
+      font-size: 16px;
+      padding-top:15em;
+      text-decoration: none;
+  }
