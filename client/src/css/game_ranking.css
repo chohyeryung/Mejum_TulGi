@@ -77,10 +77,6 @@
   display: block;
 }
 
-.leastContainer:last-child {
-  margin-bottom: 35px;
-}
-
 .attribute {
   display: flex;
   flex-direction: row;
