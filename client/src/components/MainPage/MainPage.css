@@ -71,7 +71,7 @@ main {
 .center h2 {
   font-family: "Noto Sans KR", sans-serif;
   color: #444444;
-  opacity: 80%;
+  opacity: 0.8;
   text-align: center;
   margin-top: 25%;
 }
