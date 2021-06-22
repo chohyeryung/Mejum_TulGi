@@ -25,7 +25,7 @@ export default function GameListPage(props) {
           justifyContent: "center",
         }}
       >
-        <span className="mainText">
+        <span className="mainText" style={{ marginTop: '3%' }}>
           <span>10</span>
           <span>초</span>
           <span>안</span>

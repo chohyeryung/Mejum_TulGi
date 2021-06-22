@@ -7,7 +7,7 @@
   position: relative;
   width: 100%;
   height: 50px;
-  border: 2px solid #1f5378;
+  border: 5px solid #1f5378;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -41,6 +41,8 @@
 }
 
 .progress {
+  font-family: 'RixYeoljeongdo_Regular';
+  color: #1f5378;
   z-index: 2;
 }
 

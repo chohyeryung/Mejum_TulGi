@@ -10,6 +10,7 @@
 }
 
 .hintBtn {
+  font-family: 'Noto Sans KR';
   border: none;
   position: absolute;
   right: 10%;
@@ -21,9 +22,10 @@
 }
 
 .lastTime {
+  font-family: 'Noto Sans KR';
   position: absolute;
   left: 10%;
   top: 15%;
-  font-size: 25px;
+  font-size: 2rem;
   font-weight: bold;
 }

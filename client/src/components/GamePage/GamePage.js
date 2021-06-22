@@ -122,7 +122,7 @@ export default function GamePage(props) {
   return(
     <div className="GContainer">
       <Loader
-        type="Watch"
+        type="Oval"
         color="#1f5378"
         height={200}
         width={200}
