@@ -46,7 +46,7 @@ app.get("/score", (req, res) => {
   });
 });
 
-app.post("/score", (req, res) => {
+app.post("/send_score", (req, res) => {
   let name = req.body.name;
   let score = req.body.score;
   let param = [name, score];

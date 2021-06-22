@@ -14,7 +14,7 @@ function GameEndRankPage(){
     if(name == ""){
       alert("이름을 입력해주세요")
     }else{
-      axios.post('http://localhost:5000/score',{
+      axios.post('https://mirimtulgi.emirim.kr/send_score',{
         name: name,
         score: time
       })
