@@ -14,9 +14,9 @@ function GameEndPage() {
             <img
               src={student}
               alt="sad student"
-              width="800"
-              height="800"
-              style={{ position: "absolute", right: "6%" }}
+              width="700"
+              height="700"
+              style={{ position: "absolute", right: "0%" }}
             />
             <span className="gameOverText">
               <span>G</span>

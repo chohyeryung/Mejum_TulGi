@@ -4,6 +4,8 @@ import { useLocation } from "react-router";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import check from "./check-mark.png";
+import student from "./happy_student.png";
+
 function GameEndRankPage() {
   const location = useLocation();
   const time = 95;
@@ -38,8 +40,29 @@ function GameEndRankPage() {
   return (
     <div className="divContainer">
       <div className="gameover-container">
+        <div className="pyro">
+          <div className="before"></div>
+          <div className="after"></div>
+        </div>
         <div className="gameover_text">
-          <span className="gameOverText">Game Over</span>
+          <img
+              src={student}
+              alt="sad student"
+              width="700"
+              height="700"
+              style={{ position: "absolute", right: "0%" }}
+            />
+          <span className="gameOverText">
+              <span>G</span>
+              <span>A</span>
+              <span>M</span>
+              <span>E</span>
+              <span>&nbsp;</span>
+              <span>O</span>
+              <span>V</span>
+              <span>E</span>
+              <span>R</span>
+            </span>
         </div>
         <div className="time_text">{time}초</div>
         <div className="rank_name">
@@ -51,10 +74,8 @@ function GameEndRankPage() {
           />
           <img src={check} className="check" onClick={ButtonClick} />
         </div>
-        <div className="go_game">
-          <a href="/" className="no_rank">
-            랭킹 참여안하기
-          </a>
+        <div style={{ textAlign: 'center', fontWeight: 'bold', fontFamily: 'Noto Sans KR' }}>
+          <a className="go_game" href="/">랭킹 참여안하기</a>
         </div>
       </div>
     </div>

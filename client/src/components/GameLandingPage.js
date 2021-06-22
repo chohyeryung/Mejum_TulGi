@@ -9,24 +9,16 @@ function GameLandingPage() {
   setTimeout(() => setTime(time + 1), 1000);
 
   useEffect(() => {
-    let results = [
-      ImageData[10],
-      ImageData[11],
-      ImageData[13],
-      ImageData[14],
-      ImageData[19],
-      ImageData[20],
-      ImageData[23],
-      ImageData[25],
-    ];
-    // for(let i=0; i<8; i++) {
-    //     let n = Math.floor(Math.random() * ImageData.length);
-    //     if(results.indexOf(ImageData[n]) === -1) {
-    //         results.push(ImageData[n]);
-    //     }else {
-    //         i--;
-    //     }
-    // }
+    let results = [];
+    
+    for(let i=0; i<8; i++) {
+        let n = Math.floor(Math.random() * ImageData.length);
+        if(results.indexOf(ImageData[n]) === -1) {
+            results.push(ImageData[n]);
+        }else {
+            i--;
+        }
+    }
 
     setGoodsImages(results);
   }, []);
