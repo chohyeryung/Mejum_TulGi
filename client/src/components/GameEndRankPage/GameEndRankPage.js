@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import "./GameEndRankPage.css";
 import { useLocation } from "react-router";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import check from "./check-mark.png";
 import student from "./happy_student.png";
 
 function GameEndRankPage() {
   const location = useLocation();
-  const time = 35;
+  const time = location.state.time;
   const [name, setName] = useState("");
   const history = useHistory();
   const ButtonClick = () => {
-    if (name == "") {
+    if (name === "") {
       alert("이름을 입력해주세요");
     } else {
       axios
