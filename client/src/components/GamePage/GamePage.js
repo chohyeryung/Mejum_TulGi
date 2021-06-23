@@ -57,14 +57,14 @@ export default function GamePage(props) {
 
   useEffect(() => {
     setPercent(
-      parseInt(((8 - imageList.length) / props.goodsImages.length) * 100)
+      parseInt(((6 - imageList.length) / props.goodsImages.length) * 100)
     );
   }, [props.goodsImages.length, imageList.length]);
 
   // 0.5초마다 분석
   useInterval(() => {
     console.log(imageList);
-    if (classifier && !loaded) {
+    if (classifier) {
       classifier.classify(videoRef.current, (error, results) => {
         if (error) {
           console.log(error);

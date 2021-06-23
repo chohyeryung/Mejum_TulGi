@@ -6,7 +6,7 @@ import axios from "axios";
 import check from "./check-mark.png";
 function GameEndRankPage() {
   const location = useLocation();
-  const time = 95;
+  const time = location.state.time;
   const [name, setName] = useState("");
   const history = useHistory();
   const ButtonClick = () => {
