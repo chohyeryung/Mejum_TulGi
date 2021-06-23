@@ -57,7 +57,7 @@ export default function GamePage(props) {
 
   useEffect(() => {
     setPercent(
-      parseInt(((6 - imageList.length) / props.goodsImages.length) * 100)
+      parseInt(((8 - imageList.length) / props.goodsImages.length) * 100)
     );
   }, [props.goodsImages.length, imageList.length]);
 
@@ -101,7 +101,7 @@ export default function GamePage(props) {
     setTimeout(() => setTime(time + 1), 1000);
   }
 
-  if (time === 120) {
+  if (time + hintTime === 60) {
     //2분 제한시간
     history.push({
       pathname: "/game_end",
@@ -148,13 +148,13 @@ export default function GamePage(props) {
         <ProgressBar className="progress-bar" progress={percent} />
         <div style={{ display: "flex", flexDirection: "row" }}>
           {/* <h3>{time}</h3> */}
-          {parseInt(((120 - time) % 3600) / 60) > 0 ? (
+          {parseInt(((60 - time) % 3600) / 60) > 0 ? (
             <span className="lastTime">
-              {parseInt(((120 - time) % 3600) / 60)}분&nbsp;
-              {(120 - time) % 60}초 남았습니다.
+              {parseInt(((60 - time) % 3600) / 60)}분&nbsp;
+              {(60 - time) % 60}초 남았습니다.
             </span>
           ) : (
-            <span className="lastTime">{(120 - time) % 60}초 남았습니다.</span>
+            <span className="lastTime">{(60 - time) % 60}초 남았습니다.</span>
           )}
           <span onClick={openModal} className="hintBtn">
             힌트보기

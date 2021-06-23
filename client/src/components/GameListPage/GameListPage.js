@@ -55,7 +55,7 @@ export default function GameListPage(props) {
         <table className={"ImageTable"}>
           <tr>
             {props.goodsImages.map((data, index) => {
-              return index < 3 ? (
+              return index < 4 ? (
                 <td>
                   <img src={data.imgsrc} className="GoodsImage" alt="goods" />
                 </td>
@@ -66,7 +66,7 @@ export default function GameListPage(props) {
           </tr>
           <tr>
             {props.goodsImages.map((data, index) => {
-              return index >= 3 ? (
+              return index >= 4 ? (
                 <td>
                   <img src={data.imgsrc} className="GoodsImage" alt="goods" />
                 </td>
