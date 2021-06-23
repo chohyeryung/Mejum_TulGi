@@ -8,7 +8,7 @@ import student from "./happy_student.png";
 
 function GameEndRankPage() {
   const location = useLocation();
-  const time = 95;
+  const time = 35;
   const [name, setName] = useState("");
   const history = useHistory();
   const ButtonClick = () => {
@@ -58,9 +58,10 @@ function GameEndRankPage() {
               <span>M</span>
               <span>E</span>
               <span>&nbsp;</span>
-              <span>O</span>
-              <span>V</span>
+              <span>C</span>
+              <span>L</span>
               <span>E</span>
+              <span>A</span>
               <span>R</span>
             </span>
         </div>
@@ -74,6 +75,7 @@ function GameEndRankPage() {
           />
           <img src={check} className="check" onClick={ButtonClick} />
         </div>
+        <div style={{ textAlign: 'center', fontFamily: 'Noto Sans KR' }}><span>학번과 이름을 적은 1,2,3등에게는 상품이 있으니 많은 참여 부탁드립니다!</span></div>
         <div style={{ textAlign: 'center', fontWeight: 'bold', fontFamily: 'Noto Sans KR' }}>
           <a className="go_game" href="/">랭킹 참여안하기</a>
         </div>
