@@ -99,9 +99,10 @@ export default function GamePage(props) {
 
   if (loaded) {
     setTimeout(() => setTime(time + 1), 1000);
+    console.log(time);
   }
 
-  if (time + hintTime === 90) {
+  if (time + hintTime === 90) {  // 여기 봐봐 내가 이렇게 고쳤는데 이것때문인가??
     //2분 제한시간
     history.push({
       pathname: "/game_end",
