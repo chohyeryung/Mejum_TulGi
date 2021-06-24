@@ -61,7 +61,7 @@ export default function GamePage(props) {
     );
   }, [props.goodsImages.length, imageList.length]);
 
-  // 0.5초마다 분석
+  // 0.1초마다 분석
   useInterval(() => {
     console.log(imageList);
     if (classifier) {
@@ -95,13 +95,13 @@ export default function GamePage(props) {
         }
       });
     }
-  }, 500);
+  }, 100);
 
   if (loaded) {
     setTimeout(() => setTime(time + 1), 1000);
   }
 
-  if (time + hintTime === 60) {
+  if (time + hintTime === 90) {
     //2분 제한시간
     history.push({
       pathname: "/game_end",
@@ -146,15 +146,15 @@ export default function GamePage(props) {
         }}
       >
         <ProgressBar className="progress-bar" progress={percent} />
-        <div style={{ display: "flex", flexDirection: "row" }}>
+        <div style={{ display: "flex", flexDirection: "row", marginTop: '10px', marginBottom: '10em' }}>
           {/* <h3>{time}</h3> */}
-          {parseInt(((60 - time) % 3600) / 60) > 0 ? (
+          {parseInt(((90 - time) % 3600) / 60) > 0 ? (
             <span className="lastTime">
-              {parseInt(((60 - time) % 3600) / 60)}분&nbsp;
-              {(60 - time) % 60}초 남았습니다.
+              {parseInt(((90 - time) % 3600) / 60)}분&nbsp;
+              {(90 - time) % 60}초 남았습니다.
             </span>
           ) : (
-            <span className="lastTime">{(60 - time) % 60}초 남았습니다.</span>
+            <span className="lastTime">{(90 - time) % 60}초 남았습니다.</span>
           )}
           <span onClick={openModal} className="hintBtn">
             힌트보기

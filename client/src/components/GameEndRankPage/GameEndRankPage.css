@@ -35,22 +35,21 @@
   font-family: "RixYeoljeongdo_Regular";
   text-align: center;
   font-size: 100px;
-  font-family: "Noto Sans KR", sans-serif;
   text-decoration: none;
   margin-top: 5%;
   color: #1f5378;
 }
 
 .time_text {
-  font-family: "RixYeoljeongdo_Regular";
+  font-family: "KOTRA_BOLD-Bold";
   text-align: center;
   font-size: 5rem;
-  font-family: "Noto Sans KR", sans-serif;
   text-decoration: none;
   color: black;
   margin-top: 5%;
 }
 .go_game {
+  font-family: "KOTRA_BOLD-Bold";
   margin-top: 5%;
   text-align: center;
   color: #1f5378;
@@ -76,7 +75,7 @@
   padding: 1em 1.5em;
   outline: none;
   border: 1px solid transparent;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "KOTRA_BOLD-Bold";
   font-size: 20px;
   box-sizing: border-box;
   color: black;
@@ -90,7 +89,7 @@
 
 .no_rank {
   text-align: center;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "KOTRA_BOLD-Bold";
   color: #1f5378;
   margin-top: 10px;
   font-size: 2rem;

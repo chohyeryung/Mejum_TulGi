@@ -10,18 +10,13 @@ function GameRanking() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchScore = async () => {
-      try {
-        const endpoint = "https://mirimtulgi.emirim.kr/score";
-        setLoading(true);
-        const response = await axios.get(endpoint);
-        setScore([...response.data]);
-      } catch (e) {
-        console.log(e);
-      }
+    const endpoint = "https://mirimtulgi.emirim.kr/score";
+    setLoading(true);
+    axios.get(endpoint)
+    .then((response) => {
+      setScore([...response.data]);
       setLoading(false);
-    };
-    fetchScore();
+        })
   }, []);
 
   if (loading)

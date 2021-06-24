@@ -60,13 +60,15 @@ h3 {
 }
 
 .Btnstart {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "KOTRA_BOLD-Bold";
+  vertical-align: middle;
   text-decoration: none;
   font-size: 2em;
   color: white;
   width: 6em;
   height: 1.7em;
   position: absolute;
+  margin-top: 10px;
   bottom: 5%;
   right: 12%;
   background-color: #1f5378;
@@ -77,7 +79,7 @@ h3 {
 
 .Btnstart:hover {
   background: none;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "KOTRA_BOLD-Bold";
   text-decoration: none;
   font-size: 2em;
   color: #1f5378;

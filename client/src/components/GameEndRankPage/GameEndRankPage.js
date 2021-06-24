@@ -21,14 +21,17 @@ function GameEndRankPage() {
           score: time,
         })
         .then((res) => {
-          console.log(res);
+          // history.push({
+          //   pathname: "/game_ranking",
+          // });        
         })
         .catch((err) => {
           console.log(err);
         });
 
+      //   console.log("성송")
       history.push({
-        pathname: "/game_ranking",
+        pathname: "/",
       });
     }
   };
@@ -50,7 +53,7 @@ function GameEndRankPage() {
               alt="sad student"
               width="700"
               height="700"
-              style={{ position: "absolute", right: "0%" }}
+              style={{ position: "absolute", right: "0%", zIndex: -1 }}
             />
           <span className="gameOverText">
               <span>G</span>
@@ -66,7 +69,7 @@ function GameEndRankPage() {
             </span>
         </div>
         <div className="time_text">{time}초</div>
-        <div className="rank_name">
+        <div className="rank_name" style={{ zIndex: 0 }}>
           <input
             type="text"
             placeholder="이름을 입력해주세요"
@@ -76,7 +79,7 @@ function GameEndRankPage() {
           <img src={check} className="check" onClick={ButtonClick} />
         </div>
         <div style={{ textAlign: 'center', fontFamily: 'Noto Sans KR' }}><span>학번과 이름을 적은 1,2,3등에게는 상품이 있으니 많은 참여 부탁드립니다!</span></div>
-        <div style={{ textAlign: 'center', fontWeight: 'bold', fontFamily: 'Noto Sans KR' }}>
+        <div style={{ textAlign: 'center', fontWeight: 'bold', fontFamily: "KOTRA_BOLD-Bold" }}>
           <a className="go_game" href="/">랭킹 참여안하기</a>
         </div>
       </div>

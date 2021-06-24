@@ -1,4 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap");
+@font-face {
+  font-family: "KOTRA_BOLD-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 main {
   width: 100%;
   max-width: 100vw;
@@ -63,14 +70,14 @@ main {
 }
 
 .center span {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "KOTRA_BOLD-Bold";
   color: #1f5378;
   text-align: center;
   font-size: 6rem;
 }
 
 .center h2 {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "KOTRA_BOLD-Bold";
   color: #444444;
   opacity: 0.8;
   text-align: center;
@@ -88,7 +95,7 @@ main {
 }
 
 .startBtn {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "KOTRA_BOLD-Bold";
   text-decoration: none;
   font-size: 2em;
   color: white;
@@ -102,7 +109,7 @@ main {
 }
 
 .startBtn:hover {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "KOTRA_BOLD-Bold";
   text-decoration: none;
   font-size: 2em;
   color: #1f5378;
@@ -167,7 +174,7 @@ main {
 }
 
 .ranking-text {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "KOTRA_BOLD-Bold";
   text-decoration: #1f5378;
   font-size: 1em;
   color: #1f5378;
