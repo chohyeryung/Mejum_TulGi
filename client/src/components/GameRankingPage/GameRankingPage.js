@@ -44,7 +44,7 @@ function GameRanking() {
               다시하기
             </a>
           </div>
-          <div className="bronzeScore">
+          <div className="sliverScore">
             <img src={silvermedal} width="250" height="310" alt="silver medal" />
             {score.map((s, index) => {
               if (index === 1) {
